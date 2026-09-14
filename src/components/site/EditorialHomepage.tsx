@@ -13,18 +13,18 @@ import approvalsAsset from "@/assets/product/approvals.webp.asset.json";
 import brainAsset from "@/assets/product/brain.webp.asset.json";
 import integrationsAsset from "@/assets/product/integrations.webp.asset.json";
 import reportsAsset from "@/assets/product/reports.webp.asset.json";
-import sonnyDesktop from "@/assets/employee-screens/sonny-desktop.png.asset.json";
-import sonnyMobile from "@/assets/employee-screens/sonny-mobile.png.asset.json";
-import evaDesktop from "@/assets/employee-screens/eva-desktop.png.asset.json";
-import evaMobile from "@/assets/employee-screens/eva-mobile.png.asset.json";
-import samDesktop from "@/assets/employee-screens/sam-desktop.png.asset.json";
-import samMobile from "@/assets/employee-screens/sam-mobile.png.asset.json";
-import nourDesktop from "@/assets/employee-screens/nour-desktop.png.asset.json";
-import nourMobile from "@/assets/employee-screens/nour-mobile.png.asset.json";
-import danaDesktop from "@/assets/employee-screens/dana-desktop.png.asset.json";
-import danaMobile from "@/assets/employee-screens/dana-mobile.png.asset.json";
-import adamDesktop from "@/assets/employee-screens/adam-desktop.png.asset.json";
-import adamMobile from "@/assets/employee-screens/adam-mobile.png.asset.json";
+import sonnyDesktop from "@/assets/employee-screens-v2/sonny-desktop.png.asset.json";
+import sonnyMobile from "@/assets/employee-screens-v2/sonny-mobile.png.asset.json";
+import evaDesktop from "@/assets/employee-screens-v2/eva-desktop.png.asset.json";
+import evaMobile from "@/assets/employee-screens-v2/eva-mobile.png.asset.json";
+import samDesktop from "@/assets/employee-screens-v2/sam-desktop.png.asset.json";
+import samMobile from "@/assets/employee-screens-v2/sam-mobile.png.asset.json";
+import nourDesktop from "@/assets/employee-screens-v2/nour-desktop.png.asset.json";
+import nourMobile from "@/assets/employee-screens-v2/nour-mobile.png.asset.json";
+import danaDesktop from "@/assets/employee-screens-v2/dana-desktop.png.asset.json";
+import danaMobile from "@/assets/employee-screens-v2/dana-mobile.png.asset.json";
+import adamDesktop from "@/assets/employee-screens-v2/adam-desktop.png.asset.json";
+import adamMobile from "@/assets/employee-screens-v2/adam-mobile.png.asset.json";
 
 type DemoPhase = "idle" | "thinking" | "draft" | "approved";
 
@@ -64,7 +64,7 @@ function Reveal({ children, className = "" }: { children: ReactNode; className?:
 }
 
 function ProductFrame({ src, mobileSrc, alt, hero = false }: { src: string; mobileSrc?: string; alt: string; hero?: boolean }) {
-  return <figure className={`sahl-product-frame${hero ? " is-hero" : ""}${mobileSrc ? " is-employee-screen" : ""}`}><div className="sahl-browser-bar" aria-hidden="true"><span /><span /><span /><small>app.sahl.ai</small></div><picture>{mobileSrc && <source media="(max-width: 720px)" srcSet={mobileSrc} />}<img src={src} alt={alt} loading={hero ? "eager" : "lazy"} /></picture></figure>;
+  return <figure className={`sahl-product-frame${hero ? " is-hero" : ""}${mobileSrc ? " is-employee-screen" : ""}`}>{!mobileSrc && <div className="sahl-browser-bar" aria-hidden="true"><span /><span /><span /></div>}<picture>{mobileSrc && <source media="(max-width: 720px)" srcSet={mobileSrc} />}<img src={src} alt={alt} loading={hero ? "eager" : "lazy"} /></picture></figure>;
 }
 
 function SirajDemo() {
