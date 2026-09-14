@@ -15,7 +15,7 @@ export function Nav({ variant = "over" }: { variant?: "over" | "solid" }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   return (
-    <header className={cn("stripe-nav", variant === "over" && "is-over")} dir="rtl" onMouseLeave={() => setActive(null)}>
+    <header className={cn("stripe-nav", variant === "over" && "is-over")} dir="rtl" onMouseLeave={() => setActive(null)} onKeyDown={(event) => { if (event.key === "Escape") setActive(null); }}>
       <nav className="stripe-nav-inner" aria-label="التنقل الرئيسي">
         <Link to="/" className="stripe-nav-brand"><LogoMark size={38} /><span>سهل</span></Link>
         <div className="stripe-nav-links">
