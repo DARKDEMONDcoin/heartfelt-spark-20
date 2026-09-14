@@ -1,8 +1,6 @@
 # Homepage redesign
-- [x] Audit Stripe and current Sahl homepage
-- [x] Rebuild homepage structure and interactions
-- [x] Restyle navigation and footer for the new homepage
-- [x] Verify desktop and mobile rendering
-- [x] Resolve runtime or layout issues
-- [x] Refine the full homepage to the selected Stripe-inspired direction while keeping the interface white
-- [x] Re-audit the current Stripe homepage and match its latest desktop and mobile geometry
+
+- [ ] Re-audit Stripe and the current homepage section by section
+- [ ] Select a faithful Stripe-inspired visual direction in Sahl colors
+- [ ] Rebuild the homepage structure and visuals
+- [ ] Verify desktop, tablet, and mobile layouts and interactions
