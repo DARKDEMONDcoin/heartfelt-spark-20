@@ -14457,7 +14457,7 @@ section:has(> .integration-grid-wave) {
 .sahl-hero-ribbon i { position: absolute; z-index: 2; inset: -15% auto -15% 30%; width: 2px; background: oklch(1 0 0 / .26); box-shadow: 72px 0 0 oklch(1 0 0 / .1), 144px 0 0 oklch(1 0 0 / .08); transform: rotate(14deg); }
 .sahl-hero-ribbon i:nth-child(2) { inset-inline-start: 58%; opacity: .55; }
 .sahl-hero-ribbon i:nth-child(3) { inset-inline-start: 80%; opacity: .34; }
-@keyframes sahl-ribbon-flow { to { transform: translate3d(11px,6px,0); } }
+@keyframes sahl-ribbon-flow { to { transform: translate3d(-4.12px,10.2px,0); } }
 @keyframes sahl-ribbon-light {
   0% { transform: translate3d(-6%,-4%,0) scale(1); }
   50% { transform: translate3d(5%,4%,0) scale(1.09); }
