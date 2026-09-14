@@ -17,7 +17,7 @@ import reportsAsset from "@/assets/product/reports.webp.asset.json";
 type DemoPhase = "idle" | "thinking" | "draft" | "approved";
 
 const solutions = [
-  { icon: MessageSquareText, label: "سِراج · المحتوى والنشر", title: "ينشر بالنيابة عنك، بصوت علامتك.", body: "يحوّل فكرتك إلى خطة ومحتوى مناسب لكل منصة، ثم ينتظر موافقتك قبل النشر.", image: dashboardAsset.url, to: "/employees/sonny", size: "hero" },
+  { icon: MessageSquareText, label: "سِراج · المحتوى والنشر", title: "ينشر بالنيابة عنك، بصوت علامتك.", body: "يحوّل فكرتك إلى خطة ومحتوى مناسب لكل منصة، ثم ينتظر موافقتك قبل النشر.", image: dashboardAsset.url, to: "/employees", size: "hero" },
   { icon: ShieldCheck, label: "المراجعة والاعتماد", title: "الفريق ينجز. وأنت تقرر.", body: "كل مهمة حساسة تصل إلى طابور واضح قبل أن تصل إلى عملائك.", image: approvalsAsset.url, to: "/app/approvals", size: "tall" },
   { icon: BrainCircuit, label: "عقل العلامة", title: "سياق واحد يعرفه الفريق كله.", body: "النبرة والجمهور والمنتجات والملاحظات تتحول إلى معرفة مشتركة.", image: brainAsset.url, to: "/app/brain", size: "square" },
   { icon: CalendarCheck2, label: "أمَل · التنظيم", title: "يومك مرتب قبل أن يبدأ.", body: "تلخّص الأولويات وتنظم التقويم والمتابعات في مسار واحد.", image: reportsAsset.url, to: "/employees", size: "square" },
