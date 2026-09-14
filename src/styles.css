@@ -14767,6 +14767,7 @@ section:has(> .integration-grid-wave) {
 
 @media (prefers-reduced-motion: reduce) {
   .sahl-reveal { opacity: 1; transform: none; transition: none; }
+  .sahl-hero-copy > * { animation: none; opacity: 1; transform: none; }
   .sahl-hero-wash, .sahl-float-note, .sahl-stats-curve i, .sahl-hero-ribbon::before, .sahl-hero-ribbon::after { animation: none; }
   .sahl-cap-card .sahl-product-frame { transition: none; }
 }
