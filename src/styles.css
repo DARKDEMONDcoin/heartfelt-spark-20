@@ -14269,3 +14269,80 @@ section:has(> .integration-grid-wave) {
   .stripe-infrastructure-grid article { border-left: 0; border-bottom: 1px solid var(--sahl-line); padding: 28px 0; }
   .stripe-rebuild .stripe-final-cta { min-height: 500px; }
 }
+
+/* Sahl homepage 2026 — exact brand identity and Bento features */
+.stripe-rebuild {
+  --sahl-page: oklch(0.20382 0.00871 59.14);
+  --sahl-surface: oklch(0.235 0.012 57);
+  --sahl-surface-raised: oklch(0.265 0.016 55);
+  --sahl-ink: oklch(0.94 0.012 78);
+  --sahl-copy: oklch(0.75 0.018 72);
+  --sahl-line: oklch(0.94 0.012 78 / 0.12);
+  --sahl-terracotta: oklch(0.52418 0.13258 37.48);
+  --sahl-teal: oklch(0.48558 0.06376 183.77);
+  --sahl-gold: oklch(0.67771 0.12672 73.45);
+  background: var(--sahl-page);
+  color: var(--sahl-ink);
+  font-family: "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+}
+.stripe-rebuild h1,
+.stripe-rebuild h2,
+.stripe-rebuild h3,
+.stripe-rebuild strong,
+.stripe-rebuild b { font-family: "Almarai", "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif; }
+.stripe-rebuild .stripe-solutions { background: var(--sahl-page); }
+.stripe-rebuild .stripe-section-intro h2,
+.stripe-rebuild .stripe-card-copy h3 { color: var(--sahl-ink); }
+.stripe-rebuild .stripe-section-intro > span,
+.stripe-rebuild .stripe-card-copy > span,
+.stripe-rebuild .stripe-card-copy > svg,
+.stripe-rebuild .stripe-card-copy a { color: var(--sahl-gold); }
+.stripe-rebuild .stripe-section-intro p,
+.stripe-rebuild .stripe-card-copy p { color: var(--sahl-copy); }
+.sahl-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 250px;
+  gap: 16px;
+}
+.sahl-bento-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  padding: 30px;
+  border: 1px solid var(--sahl-line);
+  border-radius: 8px;
+  background: color-mix(in oklab, var(--sahl-surface) 82%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, var(--sahl-ink) 8%, transparent), 0 24px 70px -52px var(--sahl-page);
+  backdrop-filter: blur(20px) saturate(115%);
+  transition: transform .3s var(--ease-enter), border-color .3s ease;
+}
+.sahl-bento-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(145deg, color-mix(in oklab, var(--sahl-ink) 6%, transparent), transparent 42%); }
+.sahl-bento-card.is-hero { grid-column: span 2; grid-row: span 2; }
+.sahl-bento-card.is-tall { grid-column: span 2; grid-row: span 2; background: color-mix(in oklab, var(--sahl-teal) 18%, var(--sahl-surface)); }
+.sahl-bento-card.is-square { grid-column: span 1; grid-row: span 2; background: color-mix(in oklab, var(--sahl-terracotta) 14%, var(--sahl-surface)); }
+.sahl-bento-card.is-square:nth-of-type(4) { background: color-mix(in oklab, var(--sahl-gold) 12%, var(--sahl-surface)); }
+.sahl-bento-card.is-wide { grid-column: span 2; grid-row: span 2; background: color-mix(in oklab, var(--sahl-teal) 12%, var(--sahl-surface)); }
+.sahl-bento-card .stripe-card-copy { max-width: 500px; }
+.sahl-bento-card .stripe-card-copy > svg { margin-bottom: 20px; }
+.sahl-bento-card .stripe-card-copy h3 { font-size: clamp(1.25rem, 2vw, 2rem); }
+.sahl-bento-card .stripe-static-frame { position: absolute; inset: auto 30px -18% 30px; border-color: var(--sahl-line); background: var(--sahl-surface-raised); box-shadow: 0 30px 65px -45px var(--sahl-page); }
+.sahl-bento-card.is-hero .stripe-static-frame,
+.sahl-bento-card.is-tall .stripe-static-frame { bottom: -6%; }
+.sahl-bento-card.is-square .stripe-static-frame { inset-inline: 22px; }
+.sahl-bento-card:hover { border-color: color-mix(in oklab, var(--sahl-gold) 42%, var(--sahl-line)); transform: translateY(-3px); }
+@media (max-width: 900px) {
+  .sahl-bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sahl-bento-card.is-hero,
+  .sahl-bento-card.is-tall,
+  .sahl-bento-card.is-wide { grid-column: span 2; }
+}
+@media (max-width: 720px) {
+  .sahl-bento-grid { display: flex; flex-direction: column; gap: 12px; }
+  .sahl-bento-card,
+  .sahl-bento-card.is-hero,
+  .sahl-bento-card.is-tall,
+  .sahl-bento-card.is-square,
+  .sahl-bento-card.is-wide { min-height: 440px; padding: 24px; }
+  .sahl-bento-card .stripe-static-frame { inset-inline: 24px; bottom: -4%; }
+}

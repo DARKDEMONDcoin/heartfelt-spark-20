@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, BarChart3, BrainCircuit, Check, CheckCircle2, Clock3, Code2, Globe2, Loader2, LockKeyhole, MessageSquareText, Send, ShieldCheck, Workflow } from "lucide-react";
+import { ArrowLeft, BarChart3, BrainCircuit, CalendarCheck2, Check, CheckCircle2, Clock3, Code2, Globe2, Loader2, LockKeyhole, MessageSquareText, SearchCheck, Send, ShieldCheck, Workflow } from "lucide-react";
 
 import { faqs } from "@/components/site/Faq";
 import { Portrait } from "@/components/site/Portrait";
@@ -17,9 +17,11 @@ import reportsAsset from "@/assets/product/reports.webp.asset.json";
 type DemoPhase = "idle" | "thinking" | "draft" | "approved";
 
 const solutions = [
-  { icon: MessageSquareText, label: "المحتوى والنشر", title: "محتوى يعرف صوت علامتك.", body: "خطط ومنشورات جاهزة لكل منصة، مع مراجعتك قبل النشر.", image: dashboardAsset.url, to: "/employees" },
-  { icon: ShieldCheck, label: "المراجعة والاعتماد", title: "الفريق ينجز. وأنت تقرر.", body: "كل مهمة حساسة تنتظرك في طابور واضح قبل أن تصل إلى عملائك.", image: approvalsAsset.url, to: "/app/approvals" },
-  { icon: BrainCircuit, label: "عقل العلامة", title: "سياق واحد يعرفه الفريق كله.", body: "النبرة والجمهور والمنتجات والملاحظات تتحول إلى معرفة مشتركة.", image: brainAsset.url, to: "/app/brain" },
+  { icon: MessageSquareText, label: "سِراج · المحتوى والنشر", title: "ينشر بالنيابة عنك، بصوت علامتك.", body: "يحوّل فكرتك إلى خطة ومحتوى مناسب لكل منصة، ثم ينتظر موافقتك قبل النشر.", image: dashboardAsset.url, to: "/employees/sonny", size: "hero" },
+  { icon: ShieldCheck, label: "المراجعة والاعتماد", title: "الفريق ينجز. وأنت تقرر.", body: "كل مهمة حساسة تصل إلى طابور واضح قبل أن تصل إلى عملائك.", image: approvalsAsset.url, to: "/app/approvals", size: "tall" },
+  { icon: BrainCircuit, label: "عقل العلامة", title: "سياق واحد يعرفه الفريق كله.", body: "النبرة والجمهور والمنتجات والملاحظات تتحول إلى معرفة مشتركة.", image: brainAsset.url, to: "/app/brain", size: "square" },
+  { icon: CalendarCheck2, label: "أمَل · التنظيم", title: "يومك مرتب قبل أن يبدأ.", body: "تلخّص الأولويات وتنظم التقويم والمتابعات في مسار واحد.", image: reportsAsset.url, to: "/employees", size: "square" },
+  { icon: SearchCheck, label: "نور · الظهور", title: "محتوى يُكتشف ويستحق القراءة.", body: "تبحث وتكتب وتحسن حضور مشروعك في محركات البحث والإجابة.", image: integrationsAsset.url, to: "/employees", size: "wide" },
 ] as const;
 
 const sectors = [
@@ -50,7 +52,7 @@ export function EditorialHomepage() {
 
     <section className="stripe-trust" aria-label="مجالات عمل سهل"><div className="stripe-sahl-shell"><p>فريق واحد يشغّل دورة العمل كاملة</p><div>{["المحتوى", "المبيعات", "خدمة العملاء", "التصميم", "التحليلات", "التنظيم"].map((item) => <span key={item}>{item}</span>)}</div></div></section>
 
-    <section className="stripe-solutions"><div className="stripe-sahl-shell"><header className="stripe-section-intro"><span>حلول مرنة لكل مشروع</span><h2>كل ما يحتاجه عملك.<br />داخل فريق واحد.</h2><p>ابدأ بموظف واحد أو اجمع الفريق كله. كل موظف يعرف سياق علامتك ويسلّم العمل للموظف التالي.</p></header><div className="stripe-solution-grid">{solutions.map((item, index) => <article key={item.label} className={index === 0 ? "is-featured" : ""}><div className="stripe-card-copy"><item.icon /><span>{item.label}</span><h3>{item.title}</h3><p>{item.body}</p><Link to={item.to}>اعرف المزيد <ArrowLeft /></Link></div><ProductFrame src={item.image} alt={`واجهة ${item.label} في سهل`} /></article>)}</div></div></section>
+    <section className="stripe-solutions"><div className="stripe-sahl-shell"><header className="stripe-section-intro"><span>فريق يعمل كنظام واحد</span><h2>كل قدرة تأخذ<br />المساحة التي تستحقها.</h2><p>ابدأ بسِراج للنشر، ثم أضف التنظيم والمراجعة والبحث. كل موظف يعرف سياق علامتك ويسلّم العمل للموظف التالي.</p></header><div className="sahl-bento-grid">{solutions.map((item) => <article key={item.label} className={`sahl-bento-card liquid-glass is-${item.size}`}><div className="stripe-card-copy"><item.icon /><span>{item.label}</span><h3>{item.title}</h3><p>{item.body}</p><Link to={item.to}>استكشف القدرة <ArrowLeft /></Link></div><ProductFrame src={item.image} alt={`معاينة ${item.label} في سهل`} /></article>)}</div></div></section>
 
     <section className="stripe-proof"><div className="stripe-sahl-shell"><header><span>مصمّمة للنمو</span><h2>أرقام واضحة.<br />عمل يتحرك.</h2></header><div className="stripe-proof-grid"><article><strong>٦</strong><span>موظفين متخصصين</span></article><article><strong>٢٤/٧</strong><span>تشغيل ومتابعة</span></article><article><strong>٧</strong><span>منصات من مكان واحد</span></article><article><strong>١٥+</strong><span>مصدر بيانات قابل للربط</span></article></div></div></section>
 
