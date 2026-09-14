@@ -7,7 +7,7 @@
 
 ## Sahl identity and structural patterns
 
-- [ ] 1. Replace equal feature cards with a responsive Bento grid and capture desktop/mobile
+- [x] 1. Replace equal feature cards with a responsive Bento grid and capture desktop/mobile
 - [ ] 2. Build the layered animated gradient mesh in the opening section and capture desktop/mobile
 - [ ] 3. Add the clearly-labelled demo customer marquee and capture desktop/mobile
 - [ ] 4. Replace the four static stats with a live data board and capture desktop/mobile
