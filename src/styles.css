@@ -14711,12 +14711,12 @@ section:has(> .integration-grid-wave) {
   .sahl-trust-row { display: flex; overflow-x: auto; scrollbar-width: none; scroll-snap-type: inline mandatory; }
   .sahl-trust-row span { min-width: 145px; min-height: 78px; scroll-snap-align: start; }
   .sahl-cap-grid { display: block; }
-  .sahl-cap-card, .sahl-cap-card.is-wide { min-height: 510px; margin-bottom: 12px; display: block; }
+  .sahl-cap-card, .sahl-cap-card.is-wide { min-height: 0; margin-bottom: 12px; display: block; }
   .sahl-cap-card > div:first-child { padding: 26px; }
   .sahl-cap-card > div:first-child > svg { margin-bottom: 28px; }
   .sahl-cap-card h3 { font-size: 1.85rem; }
-  .sahl-cap-card .sahl-product-frame, .sahl-cap-card.is-wide .sahl-product-frame { margin: 30px 22px -8%; }
-  .sahl-product-frame.is-employee-screen img { height: 490px; aspect-ratio: auto; object-fit: cover; object-position: top; }
+  .sahl-cap-card .sahl-product-frame, .sahl-cap-card.is-wide .sahl-product-frame { margin: 24px 16px 20px; }
+  .sahl-product-frame.is-employee-screen img { width: 100%; height: auto; aspect-ratio: 390/820; object-fit: contain; object-position: center top; }
   .sahl-stats { padding: 80px 0; }
   .sahl-stats header { grid-template-columns: 1fr; gap: 15px; }
   .sahl-stats h2 { font-size: 2.65rem; }
