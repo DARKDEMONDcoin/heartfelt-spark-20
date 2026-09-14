@@ -14269,3 +14269,126 @@ section:has(> .integration-grid-wave) {
   .stripe-infrastructure-grid article { border-left: 0; border-bottom: 1px solid var(--sahl-line); padding: 28px 0; }
   .stripe-rebuild .stripe-final-cta { min-height: 500px; }
 }
+
+/* Sahl homepage 2026 — exact brand identity and Bento features */
+.stripe-rebuild {
+  --sahl-page: oklch(0.20382 0.00871 59.14);
+  --sahl-surface: oklch(0.235 0.012 57);
+  --sahl-surface-raised: oklch(0.265 0.016 55);
+  --sahl-ink: oklch(0.94 0.012 78);
+  --sahl-copy: oklch(0.75 0.018 72);
+  --sahl-line: oklch(0.94 0.012 78 / 0.12);
+  --sahl-terracotta: oklch(0.52418 0.13258 37.48);
+  --sahl-teal: oklch(0.48558 0.06376 183.77);
+  --sahl-gold: oklch(0.67771 0.12672 73.45);
+  background: var(--sahl-page);
+  color: var(--sahl-ink);
+  font-family: "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+}
+.stripe-rebuild h1,
+.stripe-rebuild h2,
+.stripe-rebuild h3,
+.stripe-rebuild strong,
+.stripe-rebuild b { font-family: "Almarai", "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif; }
+.stripe-rebuild .stripe-solutions { background: var(--sahl-page); }
+.stripe-rebuild .stripe-section-intro h2,
+.stripe-rebuild .stripe-card-copy h3 { color: var(--sahl-ink); }
+.stripe-rebuild .stripe-section-intro > span,
+.stripe-rebuild .stripe-card-copy > span,
+.stripe-rebuild .stripe-card-copy > svg,
+.stripe-rebuild .stripe-card-copy a { color: var(--sahl-gold); }
+.stripe-rebuild .stripe-section-intro p,
+.stripe-rebuild .stripe-card-copy p { color: var(--sahl-copy); }
+.sahl-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 250px;
+  gap: 16px;
+}
+.sahl-bento-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  padding: 30px;
+  border: 1px solid var(--sahl-line);
+  border-radius: 8px;
+  background: color-mix(in oklab, var(--sahl-surface) 82%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, var(--sahl-ink) 8%, transparent), 0 24px 70px -52px var(--sahl-page);
+  backdrop-filter: blur(20px) saturate(115%);
+  transition: transform .3s var(--ease-enter), border-color .3s ease;
+}
+.sahl-bento-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(145deg, color-mix(in oklab, var(--sahl-ink) 6%, transparent), transparent 42%); }
+.sahl-bento-card.is-hero { grid-column: span 2; grid-row: span 2; }
+.sahl-bento-card.is-tall { grid-column: span 2; grid-row: span 2; background: color-mix(in oklab, var(--sahl-teal) 18%, var(--sahl-surface)); }
+.sahl-bento-card.is-square { grid-column: span 1; grid-row: span 2; background: color-mix(in oklab, var(--sahl-terracotta) 14%, var(--sahl-surface)); }
+.sahl-bento-card.is-square:nth-of-type(4) { background: color-mix(in oklab, var(--sahl-gold) 12%, var(--sahl-surface)); }
+.sahl-bento-card.is-wide { grid-column: span 2; grid-row: span 2; background: color-mix(in oklab, var(--sahl-teal) 12%, var(--sahl-surface)); }
+.sahl-bento-card .stripe-card-copy { max-width: 500px; }
+.sahl-bento-card .stripe-card-copy > svg { margin-bottom: 20px; }
+.sahl-bento-card .stripe-card-copy h3 { font-size: clamp(1.25rem, 2vw, 2rem); }
+.sahl-bento-card .stripe-static-frame { position: absolute; inset: auto 30px -18% 30px; border-color: var(--sahl-line); background: var(--sahl-surface-raised); box-shadow: 0 30px 65px -45px var(--sahl-page); }
+.sahl-bento-card.is-hero .stripe-static-frame,
+.sahl-bento-card.is-tall .stripe-static-frame { bottom: -6%; }
+.sahl-bento-card.is-square .stripe-static-frame { inset-inline: 22px; }
+.sahl-bento-card:hover { border-color: color-mix(in oklab, var(--sahl-gold) 42%, var(--sahl-line)); transform: translateY(-3px); }
+@media (max-width: 900px) {
+  .sahl-bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sahl-bento-card.is-hero,
+  .sahl-bento-card.is-tall,
+  .sahl-bento-card.is-wide { grid-column: span 2; }
+}
+@media (max-width: 720px) {
+  .sahl-bento-grid { display: flex; flex-direction: column; gap: 12px; }
+  .sahl-bento-card,
+  .sahl-bento-card.is-hero,
+  .sahl-bento-card.is-tall,
+  .sahl-bento-card.is-square,
+  .sahl-bento-card.is-wide { min-height: 440px; padding: 24px; }
+  .sahl-bento-card .stripe-static-frame { inset-inline: 24px; bottom: -4%; }
+}
+
+/* Layered animated mesh for Sahl's opening scene */
+.stripe-rebuild .stripe-sahl-hero { background: var(--sahl-page); color: var(--sahl-ink); }
+.stripe-rebuild .stripe-sahl-hero h1 { color: var(--sahl-ink); }
+.stripe-rebuild .stripe-sahl-hero h1 em { color: var(--sahl-gold); }
+.stripe-rebuild .stripe-sahl-hero-copy > p:not(.stripe-eyebrow) { color: var(--sahl-copy); }
+.sahl-hero-mesh { position: absolute; z-index: -1; inset: 0; overflow: hidden; pointer-events: none; background: var(--sahl-page); }
+.sahl-hero-mesh::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--sahl-page) 5%, color-mix(in oklab, var(--sahl-page) 72%, transparent) 48%, color-mix(in oklab, var(--sahl-page) 22%, transparent)); }
+.sahl-hero-mesh i { position: absolute; display: block; border-radius: 50%; filter: blur(62px); will-change: transform; }
+.sahl-hero-mesh .is-terracotta { width: 720px; height: 510px; top: -180px; left: -5%; background: color-mix(in oklab, var(--sahl-terracotta) 74%, transparent); animation: sahl-mesh-terracotta 18s ease-in-out infinite alternate; }
+.sahl-hero-mesh .is-teal { width: 650px; height: 580px; top: 120px; left: 32%; background: color-mix(in oklab, var(--sahl-teal) 62%, transparent); animation: sahl-mesh-teal 24s ease-in-out infinite alternate; }
+.sahl-hero-mesh .is-gold { width: 470px; height: 390px; top: -100px; right: -8%; background: color-mix(in oklab, var(--sahl-gold) 54%, transparent); animation: sahl-mesh-gold 21s ease-in-out infinite alternate; }
+.sahl-hero-mesh .is-deep { width: 560px; height: 360px; bottom: -160px; right: 14%; background: color-mix(in oklab, var(--sahl-terracotta) 34%, var(--sahl-teal)); opacity: .62; animation: sahl-mesh-deep 27s ease-in-out infinite alternate; }
+@keyframes sahl-mesh-terracotta { to { transform: translate3d(16%, 20%, 0) rotate(10deg) scale(1.12); } }
+@keyframes sahl-mesh-teal { to { transform: translate3d(-18%, -12%, 0) rotate(-9deg) scale(.92); } }
+@keyframes sahl-mesh-gold { to { transform: translate3d(-24%, 22%, 0) rotate(14deg) scale(1.18); } }
+@keyframes sahl-mesh-deep { to { transform: translate3d(12%, -18%, 0) rotate(-12deg) scale(1.08); } }
+@media (max-width: 720px) {
+  .sahl-hero-mesh .is-terracotta { width: 420px; height: 380px; left: -50%; }
+  .sahl-hero-mesh .is-teal { width: 430px; height: 400px; top: 280px; left: 20%; }
+  .sahl-hero-mesh .is-gold { width: 330px; height: 280px; right: -45%; }
+  .sahl-hero-mesh::after { background: linear-gradient(180deg, color-mix(in oklab, var(--sahl-page) 50%, transparent), var(--sahl-page) 92%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sahl-hero-mesh i { animation: none; }
+}
+
+/* Demo business marquee — intentionally labelled until real customer approval */
+.stripe-rebuild .sahl-logo-marquee { overflow: hidden; border-color: var(--sahl-line); background: var(--sahl-page); }
+.stripe-rebuild .sahl-logo-marquee .stripe-sahl-shell { width: 100%; max-width: none; min-height: 126px; display: grid; grid-template-columns: 280px minmax(0, 1fr); align-items: center; }
+.stripe-rebuild .sahl-logo-marquee p { width: auto; min-height: 126px; padding-inline: max(24px, calc((100vw - 1200px) / 2)); padding-left: 28px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; border-left: 1px solid var(--sahl-line); color: var(--sahl-copy); line-height: 1.5; }
+.stripe-rebuild .sahl-logo-marquee p b { display: block; color: var(--sahl-gold); font-size: .68rem; }
+.sahl-logo-track { min-width: max-content; display: flex; align-items: center; animation: sahl-logo-flow 26s linear infinite; }
+.stripe-rebuild .sahl-logo-marquee .sahl-logo-track span { width: 190px; flex: 0 0 190px; min-height: 126px; display: grid; place-items: center; padding: 20px; border-left: 1px solid var(--sahl-line); color: color-mix(in oklab, var(--sahl-ink) 58%, transparent); font-family: "Almarai", "IBM Plex Sans Arabic", sans-serif; font-size: 1rem; font-weight: 700; filter: grayscale(1); transition: color .25s ease, filter .25s ease, background-color .25s ease; }
+.stripe-rebuild .sahl-logo-marquee .sahl-logo-track span:hover { color: var(--sahl-ink); filter: grayscale(0); background: color-mix(in oklab, var(--sahl-teal) 10%, transparent); }
+@keyframes sahl-logo-flow { to { transform: translateX(1140px); } }
+@media (max-width: 720px) {
+  .stripe-rebuild .sahl-logo-marquee .stripe-sahl-shell { display: block; }
+  .stripe-rebuild .sahl-logo-marquee p { min-height: 82px; padding: 16px; border-left: 0; border-bottom: 1px solid var(--sahl-line); }
+  .stripe-rebuild .sahl-logo-marquee .sahl-logo-track { overflow: visible; animation: sahl-logo-flow-mobile 22s linear infinite; }
+  .stripe-rebuild .sahl-logo-marquee .sahl-logo-track span { width: 156px; flex-basis: 156px; min-height: 88px; }
+}
+@keyframes sahl-logo-flow-mobile { to { transform: translateX(936px); } }
+@media (prefers-reduced-motion: reduce) {
+  .sahl-logo-track { animation: none; overflow-x: auto; }
+}
