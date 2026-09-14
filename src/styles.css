@@ -14460,7 +14460,7 @@ section:has(> .integration-grid-wave) {
 @keyframes sahl-ribbon-flow { to { transform: translate3d(4%,2%,0); } }
 @keyframes sahl-ribbon-light { to { transform: translate3d(-4%,3%,0) scale(1.05); } }
 .sahl-hero-layout { position: relative; z-index: 2; min-height: 648px; display: flex; align-items: center; }
-.sahl-hero-copy { width: min(680px,58%); position: relative; z-index: 2; }
+.sahl-hero-copy { width: min(680px,58%); position: relative; z-index: 2; opacity: 1; transform: none; transition: none; }
 .sahl-live-metric { color: var(--home-ink); font-size: .88rem; }
 .sahl-live-metric b { font-family: inherit; font-weight: 500; }
 .sahl-hero h1 { margin-top: 62px; color: var(--home-ink); font-size: clamp(4.4rem, 7.2vw, 7.5rem); line-height: 1.02; font-weight: 600; }
