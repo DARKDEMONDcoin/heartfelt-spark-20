@@ -1,5 +1,6 @@
 import { LogoMark } from "@/components/site/LogoMark";
 import { Link } from "@tanstack/react-router";
+import { ChevronDown } from "lucide-react";
 
 const cols: { t: string; l: { label: string; to: string }[] }[] = [
   {
@@ -65,7 +66,7 @@ export function SiteFooter() {
               </p>
             </div>
             {cols.map((c) => (
-              <nav key={c.t} aria-label={c.t}>
+              <nav key={c.t} aria-label={c.t} className="site-footer-desktop-col">
                 <h3 className="site-footer-title">{c.t}</h3>
                 <ul className="mt-4 space-y-2">
                   {c.l.map((l) => (
@@ -78,6 +79,23 @@ export function SiteFooter() {
                 </ul>
               </nav>
             ))}
+            <div className="site-footer-mobile-cols">
+              {cols.map((c) => (
+                <details key={c.t}>
+                  <summary>
+                    <span>{c.t}</span>
+                    <ChevronDown aria-hidden />
+                  </summary>
+                  <nav aria-label={c.t}>
+                    {c.l.map((l) => (
+                      <Link key={l.to} to={l.to} className="site-footer-link">
+                        {l.label}
+                      </Link>
+                    ))}
+                  </nav>
+                </details>
+              ))}
+            </div>
           </div>
 
           <div className="site-footer-divider" />

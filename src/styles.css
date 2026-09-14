@@ -13930,6 +13930,7 @@ section:has(> .integration-grid-wave) {
 .stripe-sahl-home .site-footer-title { color: var(--sahl-ink); }
 .stripe-sahl-home .site-footer-divider { border-color: var(--sahl-line); }
 .stripe-sahl-home .site-footer-pill { background: var(--sahl-page); border-color: var(--sahl-line); }
+.site-footer-mobile-cols { display: none; }
 
 @media (max-width: 1024px) {
   .stripe-sahl-hero-inner { grid-template-columns: 1fr; }
@@ -13959,6 +13960,45 @@ section:has(> .integration-grid-wave) {
   .stripe-bento-card.is-wide { border-radius: 0; }
   .stripe-final-ribbon { inset: 58% -35% -12%; }
   .stripe-sahl-home .site-footer > div { padding-top: 52px; }
+  .stripe-sahl-home .site-footer-panel > div:first-child {
+    display: block;
+  }
+  .stripe-sahl-home .site-footer-desktop-col {
+    display: none;
+  }
+  .stripe-sahl-home .site-footer-mobile-cols {
+    display: block;
+    margin-top: 38px;
+    border-top: 1px solid var(--sahl-line);
+  }
+  .stripe-sahl-home .site-footer-mobile-cols details {
+    border-bottom: 1px solid var(--sahl-line);
+  }
+  .stripe-sahl-home .site-footer-mobile-cols summary {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    list-style: none;
+    color: var(--sahl-ink);
+    font-weight: 750;
+  }
+  .stripe-sahl-home .site-footer-mobile-cols summary::-webkit-details-marker {
+    display: none;
+  }
+  .stripe-sahl-home .site-footer-mobile-cols summary svg {
+    width: 17px;
+    transition: transform .2s ease;
+  }
+  .stripe-sahl-home .site-footer-mobile-cols details[open] summary svg {
+    transform: rotate(180deg);
+  }
+  .stripe-sahl-home .site-footer-mobile-cols nav {
+    display: grid;
+    gap: 12px;
+    padding: 0 0 22px;
+  }
 }
 
 /* Stripe geometry pass — preserve Sahl's white, gold and ink identity */
