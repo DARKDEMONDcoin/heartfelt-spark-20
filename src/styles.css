@@ -13960,3 +13960,162 @@ section:has(> .integration-grid-wave) {
   .stripe-final-ribbon { inset: 58% -35% -12%; }
   .stripe-sahl-home .site-footer > div { padding-top: 52px; }
 }
+
+/* Stripe geometry pass — preserve Sahl's white, gold and ink identity */
+@media (min-width: 1025px) {
+  .stripe-sahl-hero-inner {
+    grid-template-columns: minmax(0, .92fr) minmax(520px, 1.08fr);
+  }
+  .stripe-hero-stage {
+    min-height: 540px;
+  }
+  .stripe-sahl-hero-copy {
+    align-self: center;
+  }
+}
+
+.stripe-trust .stripe-sahl-shell {
+  min-height: 96px;
+}
+.stripe-trust p {
+  width: 24%;
+}
+.stripe-trust span {
+  align-items: center;
+  border-left: 0;
+  text-align: center;
+}
+.stripe-trust b {
+  display: none;
+}
+.stripe-bento-card,
+.stripe-scenes-grid > a,
+.stripe-resources .stripe-sahl-shell > div a {
+  transition: background-color .2s ease, transform .25s ease, box-shadow .25s ease;
+}
+.stripe-bento-card:hover,
+.stripe-scenes-grid > a:hover,
+.stripe-resources .stripe-sahl-shell > div a:hover {
+  background: var(--sahl-panel);
+}
+.stripe-bento-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 55px -45px color-mix(in oklab, var(--sahl-ink) 48%, transparent);
+}
+
+@media (max-width: 720px) {
+  .stripe-sahl-hero {
+    min-height: 680px;
+    padding: 138px 0 80px;
+  }
+  .stripe-sahl-ribbon {
+    inset: -175px -92% auto 17%;
+    height: 620px;
+    opacity: .76;
+  }
+  .stripe-sahl-hero h1 {
+    max-width: 390px;
+    font-size: 3.22rem;
+    line-height: 1.03;
+  }
+  .stripe-sahl-hero-copy > p:not(.stripe-eyebrow) {
+    max-width: 390px;
+    margin-top: 25px;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+  .stripe-sahl-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .stripe-sahl-actions a {
+    min-width: 0;
+    white-space: nowrap;
+  }
+  .stripe-hero-stage {
+    display: none;
+  }
+  .stripe-trust {
+    overflow: hidden;
+  }
+  .stripe-trust .stripe-sahl-shell {
+    width: 100%;
+    min-height: 104px;
+    display: flex;
+    align-items: center;
+  }
+  .stripe-trust p {
+    display: none;
+  }
+  .stripe-trust .stripe-sahl-shell > div {
+    width: max-content;
+    min-width: 680px;
+    display: flex;
+    grid-template-columns: none;
+    animation: stripe-trust-marquee 24s linear infinite;
+  }
+  .stripe-trust span,
+  .stripe-trust span:nth-child(3),
+  .stripe-trust span:nth-child(even) {
+    width: 116px;
+    flex: 0 0 116px;
+    border: 0;
+    padding: 16px 8px;
+    color: var(--sahl-ink);
+    font-size: .78rem;
+  }
+  .stripe-solutions,
+  .stripe-live-product,
+  .stripe-sectors,
+  .stripe-real-scenes,
+  .stripe-pricing,
+  .stripe-faq {
+    padding-block: 76px;
+  }
+  .stripe-section-intro {
+    margin-bottom: 34px;
+  }
+  .stripe-section-intro h2,
+  .stripe-platform-copy h2,
+  .stripe-stories h2,
+  .stripe-resources h2 {
+    font-size: 2.35rem;
+    line-height: 1.08;
+  }
+  .stripe-bento-card,
+  .stripe-bento-card.is-wide {
+    min-height: 500px;
+    padding: 24px;
+  }
+  .stripe-scale-art > i:nth-of-type(odd) {
+    display: none;
+  }
+  .stripe-sector-tabs {
+    display: flex;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    scrollbar-width: none;
+  }
+  .stripe-sector-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .stripe-sector-tabs button {
+    min-width: 176px;
+    flex: 0 0 176px;
+    scroll-snap-align: start;
+  }
+  .stripe-final-cta {
+    min-height: 570px;
+  }
+}
+
+@keyframes stripe-trust-marquee {
+  to { transform: translateX(116px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stripe-trust .stripe-sahl-shell > div {
+    animation: none;
+  }
+}
