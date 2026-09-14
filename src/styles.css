@@ -14346,3 +14346,29 @@ section:has(> .integration-grid-wave) {
   .sahl-bento-card.is-wide { min-height: 440px; padding: 24px; }
   .sahl-bento-card .stripe-static-frame { inset-inline: 24px; bottom: -4%; }
 }
+
+/* Layered animated mesh for Sahl's opening scene */
+.stripe-rebuild .stripe-sahl-hero { background: var(--sahl-page); color: var(--sahl-ink); }
+.stripe-rebuild .stripe-sahl-hero h1 { color: var(--sahl-ink); }
+.stripe-rebuild .stripe-sahl-hero h1 em { color: var(--sahl-gold); }
+.stripe-rebuild .stripe-sahl-hero-copy > p:not(.stripe-eyebrow) { color: var(--sahl-copy); }
+.sahl-hero-mesh { position: absolute; z-index: -1; inset: 0; overflow: hidden; pointer-events: none; background: var(--sahl-page); }
+.sahl-hero-mesh::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--sahl-page) 5%, color-mix(in oklab, var(--sahl-page) 72%, transparent) 48%, color-mix(in oklab, var(--sahl-page) 22%, transparent)); }
+.sahl-hero-mesh i { position: absolute; display: block; border-radius: 50%; filter: blur(62px); will-change: transform; }
+.sahl-hero-mesh .is-terracotta { width: 720px; height: 510px; top: -180px; left: -5%; background: color-mix(in oklab, var(--sahl-terracotta) 74%, transparent); animation: sahl-mesh-terracotta 18s ease-in-out infinite alternate; }
+.sahl-hero-mesh .is-teal { width: 650px; height: 580px; top: 120px; left: 32%; background: color-mix(in oklab, var(--sahl-teal) 62%, transparent); animation: sahl-mesh-teal 24s ease-in-out infinite alternate; }
+.sahl-hero-mesh .is-gold { width: 470px; height: 390px; top: -100px; right: -8%; background: color-mix(in oklab, var(--sahl-gold) 54%, transparent); animation: sahl-mesh-gold 21s ease-in-out infinite alternate; }
+.sahl-hero-mesh .is-deep { width: 560px; height: 360px; bottom: -160px; right: 14%; background: color-mix(in oklab, var(--sahl-terracotta) 34%, var(--sahl-teal)); opacity: .62; animation: sahl-mesh-deep 27s ease-in-out infinite alternate; }
+@keyframes sahl-mesh-terracotta { to { transform: translate3d(16%, 20%, 0) rotate(10deg) scale(1.12); } }
+@keyframes sahl-mesh-teal { to { transform: translate3d(-18%, -12%, 0) rotate(-9deg) scale(.92); } }
+@keyframes sahl-mesh-gold { to { transform: translate3d(-24%, 22%, 0) rotate(14deg) scale(1.18); } }
+@keyframes sahl-mesh-deep { to { transform: translate3d(12%, -18%, 0) rotate(-12deg) scale(1.08); } }
+@media (max-width: 720px) {
+  .sahl-hero-mesh .is-terracotta { width: 420px; height: 380px; left: -50%; }
+  .sahl-hero-mesh .is-teal { width: 430px; height: 400px; top: 280px; left: 20%; }
+  .sahl-hero-mesh .is-gold { width: 330px; height: 280px; right: -45%; }
+  .sahl-hero-mesh::after { background: linear-gradient(180deg, color-mix(in oklab, var(--sahl-page) 50%, transparent), var(--sahl-page) 92%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sahl-hero-mesh i { animation: none; }
+}
