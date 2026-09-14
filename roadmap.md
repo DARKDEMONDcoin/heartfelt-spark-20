@@ -21,5 +21,6 @@
 - [ ] Re-audit the complete current Stripe homepage and Sahl homepage at desktop and mobile sizes
 - [ ] Rebuild the homepage from a clean white foundation using Sahl colors and original Arabic content
 - [ ] Match Stripe structural rhythm: navigation, opening, trust, product systems, proof, use cases, pricing, resources, FAQ, and close
-- [ ] Remove excess motion and keep only purposeful interactions
+- [ ] Recreate Stripe-level scroll choreography and section transitions with restrained, purposeful motion
+- [ ] Remove excess looping media; keep motion tied to scrolling, state, or product feedback
 - [ ] Verify every section at desktop, tablet, and mobile sizes against the reference
