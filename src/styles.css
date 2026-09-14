@@ -14460,7 +14460,7 @@ section:has(> .integration-grid-wave) {
 @keyframes sahl-ribbon-flow { to { transform: translate3d(4%,2%,0); } }
 @keyframes sahl-ribbon-light { to { transform: translate3d(-4%,3%,0) scale(1.05); } }
 .sahl-hero-layout { position: relative; z-index: 2; min-height: 648px; display: flex; align-items: center; }
-.sahl-hero-copy { width: min(680px,58%); position: relative; z-index: 2; }
+.sahl-hero-copy { width: min(680px,58%); position: relative; z-index: 2; opacity: 1; transform: none; transition: none; }
 .sahl-live-metric { color: var(--home-ink); font-size: .88rem; }
 .sahl-live-metric b { font-family: inherit; font-weight: 500; }
 .sahl-hero h1 { margin-top: 62px; color: var(--home-ink); font-size: clamp(4.4rem, 7.2vw, 7.5rem); line-height: 1.02; font-weight: 600; }
@@ -14472,6 +14472,13 @@ section:has(> .integration-grid-wave) {
 .sahl-google-mark { display: grid; width: 21px; height: 21px; place-items: center; border-radius: 50%; color: var(--home-teal); font-family: ui-sans-serif,system-ui,sans-serif; font-size: 1rem; font-weight: 800; }
 .sahl-hero-copy > small { margin-top: 18px; display: flex; align-items: center; gap: 7px; color: var(--home-copy); font-size: .72rem; }
 .sahl-hero-copy > small svg { width: 15px; color: var(--home-teal); }
+.sahl-hero-copy > * { animation: sahl-hero-rise .8s cubic-bezier(.2,.7,.2,1) both; }
+.sahl-hero-copy > *:nth-child(1) { animation-delay: .04s; }
+.sahl-hero-copy > *:nth-child(2) { animation-delay: .14s; }
+.sahl-hero-copy > *:nth-child(3) { animation-delay: .24s; }
+.sahl-hero-copy > *:nth-child(4) { animation-delay: .34s; }
+.sahl-hero-copy > *:nth-child(5) { animation-delay: .44s; }
+@keyframes sahl-hero-rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
 .sahl-hero-product { position: relative; min-width: 0; perspective: 1400px; }
 .sahl-hero-wash { position: absolute; z-index: -1; inset: -22% -10% -28% -30%; background: conic-gradient(from 195deg at 55% 48%, color-mix(in oklab,var(--home-teal) 70%,transparent), color-mix(in oklab,var(--home-gold) 62%,transparent), color-mix(in oklab,var(--home-terracotta) 65%,transparent), color-mix(in oklab,var(--home-teal) 70%,transparent)); filter: blur(44px); opacity: .68; transform: rotate(-9deg); animation: sahl-wash-drift 14s ease-in-out infinite alternate; }
 @keyframes sahl-wash-drift { to { transform: rotate(-3deg) translate3d(-2%,4%,0) scale(1.04); } }
@@ -14760,6 +14767,7 @@ section:has(> .integration-grid-wave) {
 
 @media (prefers-reduced-motion: reduce) {
   .sahl-reveal { opacity: 1; transform: none; transition: none; }
+  .sahl-hero-copy > * { animation: none; opacity: 1; transform: none; }
   .sahl-hero-wash, .sahl-float-note, .sahl-stats-curve i, .sahl-hero-ribbon::before, .sahl-hero-ribbon::after { animation: none; }
   .sahl-cap-card .sahl-product-frame { transition: none; }
 }
