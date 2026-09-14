@@ -13,15 +13,28 @@ import approvalsAsset from "@/assets/product/approvals.webp.asset.json";
 import brainAsset from "@/assets/product/brain.webp.asset.json";
 import integrationsAsset from "@/assets/product/integrations.webp.asset.json";
 import reportsAsset from "@/assets/product/reports.webp.asset.json";
+import sonnyDesktop from "@/assets/employee-screens/sonny-desktop.png.asset.json";
+import sonnyMobile from "@/assets/employee-screens/sonny-mobile.png.asset.json";
+import evaDesktop from "@/assets/employee-screens/eva-desktop.png.asset.json";
+import evaMobile from "@/assets/employee-screens/eva-mobile.png.asset.json";
+import samDesktop from "@/assets/employee-screens/sam-desktop.png.asset.json";
+import samMobile from "@/assets/employee-screens/sam-mobile.png.asset.json";
+import nourDesktop from "@/assets/employee-screens/nour-desktop.png.asset.json";
+import nourMobile from "@/assets/employee-screens/nour-mobile.png.asset.json";
+import danaDesktop from "@/assets/employee-screens/dana-desktop.png.asset.json";
+import danaMobile from "@/assets/employee-screens/dana-mobile.png.asset.json";
+import adamDesktop from "@/assets/employee-screens/adam-desktop.png.asset.json";
+import adamMobile from "@/assets/employee-screens/adam-mobile.png.asset.json";
 
 type DemoPhase = "idle" | "thinking" | "draft" | "approved";
 
 const capabilities = [
-  { icon: MessageSquareText, kicker: "سِراج · المحتوى", title: "من فكرة واحدة إلى حضور يومي متكامل.", body: "يخطط ويكتب ويجهّز المحتوى لكل منصة، ثم يضع كل مادة أمامك للمراجعة.", image: dashboardAsset.url, tone: "terracotta", span: "wide" },
-  { icon: ShieldCheck, kicker: "التحكم", title: "لا شيء حساس يخرج دونك.", body: "قواعد اعتماد واضحة تحفظ سيطرتك وتترك العمل يتحرك.", image: approvalsAsset.url, tone: "teal", span: "standard" },
-  { icon: BrainCircuit, kicker: "عقل العلامة", title: "سياق واحد يتذكره الفريق كله.", body: "نبرتك وجمهورك ومنتجاتك تتحول إلى معرفة مشتركة.", image: brainAsset.url, tone: "gold", span: "standard" },
-  { icon: CalendarCheck2, kicker: "أمَل · التنظيم", title: "الأولوية التالية واضحة دائماً.", body: "تنظيم للتقويم والبريد والمتابعات من دون جداول مبعثرة.", image: reportsAsset.url, tone: "neutral", span: "standard" },
-  { icon: SearchCheck, kicker: "نور · الظهور", title: "محتوى يُكتشف ويستحق القراءة.", body: "بحث وكتابة وتحسين لمحركات البحث والإجابة.", image: integrationsAsset.url, tone: "teal", span: "wide" },
+  { icon: MessageSquareText, kicker: "سِراج · السوشيال ميديا", title: "من فكرة واحدة إلى حضور يومي متكامل.", body: "يخطط ويكتب ويصمم وينشر، ثم يتابع النتائج معك من محادثة واحدة.", image: sonnyDesktop.url, mobileImage: sonnyMobile.url, tone: "terracotta", span: "wide" },
+  { icon: CalendarCheck2, kicker: "أمَل · المساعدة التنفيذية", title: "وقتك مرتب، وما يحتاج قرارك واضح.", body: "تفرز البريد وتنظم التقويم وتتابع المهام من واجهتها الخاصة.", image: evaDesktop.url, mobileImage: evaMobile.url, tone: "gold", span: "standard" },
+  { icon: BarChart3, kicker: "سالم · المبيعات", title: "فرص البيع تتحرك من البحث إلى المتابعة.", body: "يبحث عن العملاء ويراسلهم ويتابع الردود حتى يسلمك الفرص الجاهزة.", image: samDesktop.url, mobileImage: samMobile.url, tone: "teal", span: "standard" },
+  { icon: SearchCheck, kicker: "نور · المحتوى والسيو", title: "محتوى يُكتشف ويستحق القراءة.", body: "تبحث وتكتب وتراجع الظهور في محركات البحث والإجابة.", image: nourDesktop.url, mobileImage: nourMobile.url, tone: "terracotta", span: "wide" },
+  { icon: Sparkles, kicker: "دانة · التصميم", title: "هوية متسقة في كل مقاس ومنصة.", body: "تحول الطلب إلى تصاميم جاهزة وتعرض كل نتيجة داخل مساحة عملها.", image: danaDesktop.url, mobileImage: danaMobile.url, tone: "teal", span: "standard" },
+  { icon: BrainCircuit, kicker: "آدم · تحليل البيانات", title: "كل رقم ينتهي بقرار واضح.", body: "يجمع أداء القنوات ويكشف التغيرات ويقترح الخطوة التالية.", image: adamDesktop.url, mobileImage: adamMobile.url, tone: "gold", span: "standard" },
 ] as const;
 
 const sectors = [
@@ -50,8 +63,8 @@ function Reveal({ children, className = "" }: { children: ReactNode; className?:
   return <div ref={ref} className={`sahl-reveal ${className}`}>{children}</div>;
 }
 
-function ProductFrame({ src, alt, hero = false }: { src: string; alt: string; hero?: boolean }) {
-  return <figure className={`sahl-product-frame${hero ? " is-hero" : ""}`}><div className="sahl-browser-bar" aria-hidden="true"><span /><span /><span /><small>app.sahl.ai</small></div><img src={src} alt={alt} loading={hero ? "eager" : "lazy"} /></figure>;
+function ProductFrame({ src, mobileSrc, alt, hero = false }: { src: string; mobileSrc?: string; alt: string; hero?: boolean }) {
+  return <figure className={`sahl-product-frame${hero ? " is-hero" : ""}${mobileSrc ? " is-employee-screen" : ""}`}><div className="sahl-browser-bar" aria-hidden="true"><span /><span /><span /><small>app.sahl.ai</small></div><picture>{mobileSrc && <source media="(max-width: 720px)" srcSet={mobileSrc} />}<img src={src} alt={alt} loading={hero ? "eager" : "lazy"} /></picture></figure>;
 }
 
 function SirajDemo() {
@@ -72,7 +85,7 @@ export function EditorialHomepage() {
 
     <section className="sahl-trust" aria-label="أمثلة لأنشطة صُمم سهل لخدمتها"><div className="sahl-shell"><p><b>أمثلة توضيحية</b> لأنشطة عربية صُمّم سهل لخدمتها</p><div className="sahl-trust-row">{["نُقطة قهوة", "دار نَسج", "مدار التقنية", "عيادات وِصال", "مذاق البيت", "أثر العقارية"].map((name) => <span key={name}>{name}</span>)}</div></div></section>
 
-    <section className="sahl-section sahl-capabilities"><div className="sahl-shell"><Reveal><header className="sahl-section-head"><span>نظام واحد بدل أدوات متفرقة</span><h2>كل ما يحتاجه مشروعك،<br /><em>يعمل معاً من البداية.</em></h2><p>ابدأ بموظف واحد، ثم أضف القدرات التي تحتاجها. كل مهمة تحمل سياقها إلى الخطوة التالية.</p></header></Reveal><div className="sahl-cap-grid">{capabilities.map((item) => <Reveal key={item.kicker} className={`sahl-cap-card is-${item.span} is-${item.tone}`}><div><item.icon /><span>{item.kicker}</span><h3>{item.title}</h3><p>{item.body}</p><Link to="/features">اعرف أكثر <ArrowLeft /></Link></div><ProductFrame src={item.image} alt={`معاينة ${item.kicker} في سهل`} /></Reveal>)}</div></div></section>
+    <section className="sahl-section sahl-capabilities"><div className="sahl-shell"><Reveal><header className="sahl-section-head"><span>نظام واحد بدل أدوات متفرقة</span><h2>كل ما يحتاجه مشروعك،<br /><em>يعمل معاً من البداية.</em></h2><p>ابدأ بموظف واحد، ثم أضف القدرات التي تحتاجها. كل مهمة تحمل سياقها إلى الخطوة التالية.</p></header></Reveal><div className="sahl-cap-grid">{capabilities.map((item) => <Reveal key={item.kicker} className={`sahl-cap-card is-${item.span} is-${item.tone}`}><div><item.icon /><span>{item.kicker}</span><h3>{item.title}</h3><p>{item.body}</p><Link to="/features">اعرف أكثر <ArrowLeft /></Link></div><ProductFrame src={item.image} mobileSrc={item.mobileImage} alt={`واجهة ${item.kicker} الحقيقية في سهل`} /></Reveal>)}</div></div></section>
 
     <section className="sahl-stats"><div className="sahl-stats-curve" aria-hidden="true"><i /><i /><i /></div><div className="sahl-shell"><Reveal><header><span>بيانات توضيحية من تدفقات سهل</span><h2>أثر العمل يظهر<br />في لوحة واحدة.</h2></header></Reveal><div className="sahl-stat-grid">{stats.map((item, index) => <Reveal key={item.label} className="sahl-stat"><small>٠{index + 1}</small><strong>{item.value}</strong><span>{item.label}</span></Reveal>)}</div></div></section>
 
