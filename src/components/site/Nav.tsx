@@ -1,161 +1,31 @@
-import { LogoMark } from "@/components/site/LogoMark";
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { LogoMark } from "@/components/site/LogoMark";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-const links = [
-  { label: "الموظفون", to: "/employees" },
-  { label: "الحلول", to: "/use-cases" },
-  { label: "المزايا", to: "/features" },
-  { label: "التكاملات", to: "/integrations" },
-  { label: "كيف يعمل", to: "/how-it-works" },
-  { label: "الأسعار", to: "/pricing" },
-  { label: "قصص النجاح", to: "/stories" },
-  { label: "المدونة", to: "/blog" },
+const groups = [
+  { label: "المنتج", links: [{ label: "الموظفون", to: "/employees" }, { label: "المزايا", to: "/features" }, { label: "كيف يعمل", to: "/how-it-works" }] },
+  { label: "الحلول", links: [{ label: "كل القطاعات", to: "/use-cases" }, { label: "المتاجر", to: "/use-cases" }, { label: "المطاعم", to: "/use-cases" }] },
+  { label: "المصادر", links: [{ label: "قصص النجاح", to: "/stories" }, { label: "المدونة", to: "/blog" }, { label: "الأسئلة الشائعة", to: "/faq" }] },
 ] as const;
 
 export function Nav({ variant = "over" }: { variant?: "over" | "solid" }) {
   const [open, setOpen] = useState(false);
-  const solid = variant === "solid";
-
+  const [active, setActive] = useState<string | null>(null);
   return (
-    <header
-      className={cn(
-        "pointer-events-none fixed inset-x-0 top-0 z-50 py-4 text-white",
-        solid && "text-foreground",
-      )}
-    >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5">
-        <Link to="/" className="nav-floating-control pointer-events-auto group flex items-center gap-2 rounded-full py-1.5 pe-3 ps-1.5 sm:gap-2.5 sm:pe-4">
-          <LogoMark className="size-8 sm:size-11" size={44} />
-          <span className="font-display text-lg font-extrabold tracking-tight sm:text-xl">سهل</span>
-        </Link>
-
-        <ul className="pointer-events-auto hidden items-center gap-0.5 xl:flex">
-          {links.map((l) => (
-            <li key={l.to}>
-              <Link
-                to={l.to}
-                className={cn(
-                  "nav-floating-control relative rounded-full px-2.5 py-2 text-sm font-medium transition-colors",
-                  solid ? "text-ink-soft hover:text-primary" : "text-white/90 hover:text-white",
-                )}
-                activeProps={{
-                  className: solid ? "text-primary font-bold" : "text-white font-bold",
-                }}
-              >
-                {l.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <div className="pointer-events-auto hidden items-center gap-2 xl:flex">
-          <Link
-            to="/app"
-            className={cn(
-              "nav-floating-control rounded-full px-4 py-2 text-sm font-semibold transition-colors",
-              solid ? "text-ink-soft hover:text-primary" : "text-white/90 hover:text-white",
-            )}
-          >
-            جرّب الموظفين
-          </Link>
-          <Link
-            to="/auth"
-            search={{ mode: "signin" as const }}
-            className={cn(
-              "nav-floating-control rounded-full px-4 py-2 text-sm font-semibold transition-colors",
-              solid ? "text-ink-soft hover:text-primary" : "text-white/90 hover:text-white",
-            )}
-          >
-            دخول
-          </Link>
-          <Link
-            to="/auth"
-            search={{ mode: "signup" as const }}
-            className={cn(
-              "group relative overflow-hidden rounded-full px-5 py-2.5 text-sm font-bold transition-transform duration-300 hover:-translate-y-0.5",
-              solid ? "bg-foreground text-background" : "bg-white text-ink",
-            )}
-          >
-            <span className="relative z-10">أنشئ حسابك</span>
-          </Link>
+    <header className={cn("stripe-nav", variant === "over" && "is-over")} dir="rtl" onMouseLeave={() => setActive(null)}>
+      <nav className="stripe-nav-inner" aria-label="التنقل الرئيسي">
+        <Link to="/" className="stripe-nav-brand"><LogoMark size={38} /><span>سهل</span></Link>
+        <div className="stripe-nav-links">
+          {groups.map((group) => <div key={group.label} onMouseEnter={() => setActive(group.label)}><Button type="button" variant="ghost" aria-expanded={active === group.label}>{group.label}<ChevronDown /></Button>{active === group.label && <div className="stripe-nav-popover">{group.links.map((item) => <Link key={item.to} to={item.to}>{item.label}<span>←</span></Link>)}</div>}</div>)}
+          <Link to="/integrations">التكاملات</Link><Link to="/pricing">الأسعار</Link>
         </div>
-
-        <Button
-          type="button"
-          variant="ghost"
-          size="icon"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="القائمة"
-          className={cn(
-            "nav-floating-control pointer-events-auto size-11 rounded-full xl:hidden",
-            solid ? "text-foreground" : "text-white",
-          )}
-        >
-          {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </Button>
+        <div className="stripe-nav-actions"><Link to="/auth" search={{ mode: "signin" as const }}>دخول</Link><Link to="/auth" search={{ mode: "signup" as const }}>ابدأ الآن <span>←</span></Link></div>
+        <Button className="stripe-nav-menu" type="button" variant="ghost" size="icon" onClick={() => setOpen((value) => !value)} aria-label={open ? "إغلاق القائمة" : "فتح القائمة"}>{open ? <X /> : <Menu />}</Button>
       </nav>
-
-      <div
-        className={cn(
-          "pointer-events-auto transition-[max-height,opacity] duration-500 ease-out xl:hidden",
-          open
-            ? "max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain opacity-100"
-            : "max-h-0 overflow-hidden opacity-0",
-        )}
-      >
-        <div className="nav-glass-sheet mx-3 my-3 max-w-[26rem] p-4 text-foreground md:mx-auto">
-          <div className="mb-3 flex items-center justify-between px-1">
-            <span className="text-xs font-semibold tracking-wide text-foreground/55">تنقّل</span>
-            <span className="flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[0.72rem] font-bold text-foreground/70" style={{ border: "1px solid color-mix(in oklab, var(--foreground) 14%, transparent)" }}>
-              <LogoMark className="size-5" size={20} /> سهل
-            </span>
-          </div>
-          <ul className="grid grid-cols-2 gap-1.5">
-            {links.map((l) => (
-              <li key={l.to}>
-                <Link
-                  onClick={() => setOpen(false)}
-                  to={l.to}
-                  className="nav-glass-item block px-3.5 py-2.5 text-[0.95rem] font-medium"
-                  activeProps={{ className: "nav-glass-item is-active font-bold" }}
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div className="nav-glass-divider my-3.5" />
-          <div className="grid grid-cols-2 gap-2.5">
-            <Link
-              onClick={() => setOpen(false)}
-              to="/auth"
-              search={{ mode: "signin" as const }}
-              className="nav-glass-cta block rounded-xl px-3.5 py-2.5 text-center font-bold text-foreground"
-            >
-              تسجيل الدخول
-            </Link>
-            <Link
-              onClick={() => setOpen(false)}
-              to="/auth"
-              search={{ mode: "signup" as const }}
-              className="nav-glass-cta-primary block rounded-xl px-3.5 py-2.5 text-center font-bold text-primary-foreground"
-            >
-              أنشئ حسابك
-            </Link>
-            <Link
-              onClick={() => setOpen(false)}
-              to="/app"
-              className="nav-glass-cta-aurora col-span-2 block rounded-xl px-3.5 py-2.5 text-center font-bold text-primary-foreground"
-            >
-              جرّب الموظفين مجانًا الآن ←
-            </Link>
-          </div>
-        </div>
-      </div>
+      {open && <div className="stripe-mobile-menu"><Link to="/employees" onClick={() => setOpen(false)}>الموظفون<span>←</span></Link><Link to="/features" onClick={() => setOpen(false)}>المزايا<span>←</span></Link><Link to="/how-it-works" onClick={() => setOpen(false)}>كيف يعمل<span>←</span></Link><Link to="/use-cases" onClick={() => setOpen(false)}>الحلول<span>←</span></Link><Link to="/stories" onClick={() => setOpen(false)}>قصص النجاح<span>←</span></Link><Link to="/blog" onClick={() => setOpen(false)}>المدونة<span>←</span></Link><Link to="/integrations" onClick={() => setOpen(false)}>التكاملات<span>←</span></Link><Link to="/pricing" onClick={() => setOpen(false)}>الأسعار<span>←</span></Link><div><Link to="/auth" search={{ mode: "signin" as const }}>دخول</Link><Link to="/auth" search={{ mode: "signup" as const }}>ابدأ الآن</Link></div></div>}
     </header>
   );
 }
