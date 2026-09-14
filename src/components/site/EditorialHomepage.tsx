@@ -112,7 +112,7 @@ function ScaleGraphic() {
 
 export function EditorialHomepage() {
   const [sector, setSector] = useState(0);
-  const currentSector = sectors[sector];
+  const currentSector = sectors[sector] ?? sectors[0];
 
   return (
     <div className="stripe-sahl-home" dir="rtl">
