@@ -31,6 +31,8 @@ const sectors = [
   { id: "realestate", label: "العقار", title: "كل فرصة تحصل على متابعة كاملة.", body: "العروض والمحتوى والتقارير تنتقل بين الموظفين بسياق واضح.", stat: "٦ موظفين", image: reportsAsset.url },
 ] as const;
 
+const demoBusinesses = ["نُقطة قهوة", "دار نَسج", "مدار التقنية", "عيادات وِصال", "مذاق البيت", "أثر العقارية"];
+
 function ProductFrame({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {
   return <figure className={`stripe-static-frame ${className}`}><div className="stripe-browser-bar" aria-hidden="true"><i /><i /><i /><span>app.sahl.ai</span></div><img src={src} alt={alt} loading={className.includes("is-hero") ? "eager" : "lazy"} /></figure>;
 }
@@ -50,7 +52,7 @@ export function EditorialHomepage() {
   return <div className="stripe-sahl-home stripe-rebuild" dir="rtl">
     <section className="stripe-sahl-hero" aria-labelledby="home-title"><div className="sahl-hero-mesh" aria-hidden="true"><i className="is-terracotta" /><i className="is-teal" /><i className="is-gold" /><i className="is-deep" /></div><div className="stripe-sahl-grid" aria-hidden="true" /><div className="stripe-sahl-shell stripe-sahl-hero-inner"><div className="stripe-sahl-hero-copy"><p className="stripe-eyebrow"><span>جديد</span> فريق عربي يعمل معك على مدار الساعة</p><h1 id="home-title">البنية التشغيلية<br /><em>لنمو مشروعك.</em></h1><p>موظفون رقميون يكتبون ويصممون ويردّون ويبيعون ويحللون — من أول مهمة إلى أول نتيجة، داخل مساحة واحدة.</p><div className="stripe-sahl-actions"><Link to="/auth" search={{ mode: "signup" as const }}>ابدأ الآن <ArrowLeft /></Link><a href="#siraj-demo">شاهد سِراج يعمل</a></div><small><CheckCircle2 /> ١٤ يوماً مجاناً، بدون بطاقة بنكية</small></div><div className="stripe-hero-stage"><ProductFrame src={dashboardAsset.url} alt="مساحة عمل سهل لإدارة الفريق الرقمي" className="is-hero" /><div className="stripe-floating-task"><span><CheckCircle2 /></span><div><small>اكتملت الآن</small><b>خطة محتوى الأسبوع</b></div></div></div></div></section>
 
-    <section className="stripe-trust" aria-label="مجالات عمل سهل"><div className="stripe-sahl-shell"><p>فريق واحد يشغّل دورة العمل كاملة</p><div>{["المحتوى", "المبيعات", "خدمة العملاء", "التصميم", "التحليلات", "التنظيم"].map((item) => <span key={item}>{item}</span>)}</div></div></section>
+    <section className="stripe-trust sahl-logo-marquee" aria-label="نماذج لأنشطة عربية يمكنها استخدام سهل"><div className="stripe-sahl-shell"><p><b>نماذج تجريبية</b> لأنشطة عربية صُمّم سهل لخدمتها</p><div className="sahl-logo-track">{[...demoBusinesses, ...demoBusinesses].map((item, index) => <span key={`${item}-${index}`}>{item}</span>)}</div></div></section>
 
     <section className="stripe-solutions"><div className="stripe-sahl-shell"><header className="stripe-section-intro"><span>فريق يعمل كنظام واحد</span><h2>كل قدرة تأخذ<br />المساحة التي تستحقها.</h2><p>ابدأ بسِراج للنشر، ثم أضف التنظيم والمراجعة والبحث. كل موظف يعرف سياق علامتك ويسلّم العمل للموظف التالي.</p></header><div className="sahl-bento-grid">{solutions.map((item) => <article key={item.label} className={`sahl-bento-card liquid-glass is-${item.size}`}><div className="stripe-card-copy"><item.icon /><span>{item.label}</span><h3>{item.title}</h3><p>{item.body}</p><Link to={item.to}>استكشف القدرة <ArrowLeft /></Link></div><ProductFrame src={item.image} alt={`معاينة ${item.label} في سهل`} /></article>)}</div></div></section>
 
