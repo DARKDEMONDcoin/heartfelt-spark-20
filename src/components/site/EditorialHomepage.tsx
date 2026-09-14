@@ -8,11 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { plans } from "@/data/pricing";
 import { stories } from "@/data/stories";
-import dashboardAsset from "@/assets/product/dashboard.webp.asset.json";
-import approvalsAsset from "@/assets/product/approvals.webp.asset.json";
-import brainAsset from "@/assets/product/brain.webp.asset.json";
 import integrationsAsset from "@/assets/product/integrations.webp.asset.json";
-import reportsAsset from "@/assets/product/reports.webp.asset.json";
 import ecommerceSector from "@/assets/sectors/ecommerce.jpg.asset.json";
 import restaurantsSector from "@/assets/sectors/restaurants.jpg.asset.json";
 import clinicsSector from "@/assets/sectors/clinics.jpg.asset.json";
