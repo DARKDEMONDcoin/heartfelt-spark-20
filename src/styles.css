@@ -14451,7 +14451,7 @@ section:has(> .integration-grid-wave) {
 @keyframes sahl-menu-in { from { opacity: 0; transform: translateY(-7px) scale(.98); } }
 
 .sahl-hero { position: relative; min-height: 900px; padding: 148px 0 104px; overflow: hidden; background: var(--home-bg); }
-.sahl-hero-ribbon { position: absolute; z-index: 0; inset: -44% -8% 4% 42%; overflow: hidden; transform: skewX(-17deg) rotate(-9deg); transform-origin: center; background: linear-gradient(135deg, var(--home-teal), var(--home-gold) 42%, var(--home-terracotta)); }
+.sahl-hero-ribbon { position: absolute; z-index: 0; inset: -44% 42% 4% -8%; overflow: hidden; transform: skewX(-17deg) rotate(-9deg); transform-origin: center; background: linear-gradient(135deg, var(--home-teal), var(--home-gold) 42%, var(--home-terracotta)); }
 .sahl-hero-ribbon::before { content: ""; position: absolute; inset: -18%; background: repeating-linear-gradient(112deg, transparent 0 3px, oklch(1 0 0 / .12) 4px, transparent 6px 11px); opacity: .7; animation: sahl-ribbon-flow 15s linear infinite; }
 .sahl-hero-ribbon::after { content: ""; position: absolute; inset: -20%; background: radial-gradient(ellipse at 20% 35%, color-mix(in oklab,var(--home-teal) 82%,transparent), transparent 38%), radial-gradient(ellipse at 72% 62%, color-mix(in oklab,var(--home-gold) 88%,transparent), transparent 42%), radial-gradient(ellipse at 86% 20%, color-mix(in oklab,var(--home-terracotta) 88%,transparent), transparent 45%); filter: blur(22px); }
 .sahl-hero-ribbon i { position: absolute; z-index: 2; inset: -15% auto -15% 30%; width: 2px; background: oklch(1 0 0 / .26); box-shadow: 72px 0 0 oklch(1 0 0 / .1), 144px 0 0 oklch(1 0 0 / .08); transform: rotate(14deg); }
