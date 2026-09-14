@@ -8,11 +8,11 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { plans } from "@/data/pricing";
 import { stories } from "@/data/stories";
-import dashboardAsset from "@/assets/product/dashboard.webp.asset.json";
-import approvalsAsset from "@/assets/product/approvals.webp.asset.json";
-import brainAsset from "@/assets/product/brain.webp.asset.json";
 import integrationsAsset from "@/assets/product/integrations.webp.asset.json";
-import reportsAsset from "@/assets/product/reports.webp.asset.json";
+import ecommerceSector from "@/assets/sectors/ecommerce.jpg.asset.json";
+import restaurantsSector from "@/assets/sectors/restaurants.jpg.asset.json";
+import clinicsSector from "@/assets/sectors/clinics.jpg.asset.json";
+import realestateSector from "@/assets/sectors/realestate.jpg.asset.json";
 import sonnyDesktop from "@/assets/employee-screens-v2/sonny-desktop.png.asset.json";
 import sonnyMobile from "@/assets/employee-screens-v2/sonny-mobile.png.asset.json";
 import evaDesktop from "@/assets/employee-screens-v2/eva-desktop.png.asset.json";
@@ -38,10 +38,10 @@ const capabilities = [
 ] as const;
 
 const sectors = [
-  { id: "ecommerce", label: "المتاجر", title: "من أول منشور إلى متابعة الطلب.", body: "المحتوى والحملات ورسائل العملاء تتحرك في مسار واحد دون نسخ ولصق بين الأدوات.", stat: "٧ منصات", image: dashboardAsset.url },
-  { id: "restaurants", label: "المطاعم", title: "حضور يومي وردود أسرع وقت الذروة.", body: "جهّز العروض، انشرها، وتابع الرسائل والموافقات من مساحة واحدة.", stat: "٢٤/٧", image: approvalsAsset.url },
-  { id: "clinics", label: "العيادات", title: "محتوى يبني الثقة ويحفظ وقت الفريق.", body: "خطط توعوية وردود متسقة مع مراجعة بشرية قبل المواد الحساسة.", stat: "خطوة واحدة", image: brainAsset.url },
-  { id: "realestate", label: "العقار", title: "كل فرصة تحصل على متابعة كاملة.", body: "العروض والمحتوى والتقارير تنتقل بين الموظفين بسياق واضح.", stat: "٦ موظفين", image: reportsAsset.url },
+  { id: "ecommerce", label: "المتاجر", title: "من أول منشور إلى متابعة الطلب.", body: "المحتوى والحملات ورسائل العملاء تتحرك في مسار واحد دون نسخ ولصق بين الأدوات.", stat: "٧ منصات", image: ecommerceSector.url, task: "إطلاق مجموعة الخريف", result: "١٢ مادة جاهزة", signal: "+٣٤٪ تفاعل", icon: "◫" },
+  { id: "restaurants", label: "المطاعم", title: "حضور يومي وردود أسرع وقت الذروة.", body: "جهّز العروض، انشرها، وتابع الرسائل والموافقات من مساحة واحدة.", stat: "٢٤/٧", image: restaurantsSector.url, task: "حملة قائمة نهاية الأسبوع", result: "النشر اليوم ٦:٣٠", signal: "٨٧٪ حجوزات", icon: "✦" },
+  { id: "clinics", label: "العيادات", title: "محتوى يبني الثقة ويحفظ وقت الفريق.", body: "خطط توعوية وردود متسقة مع مراجعة بشرية قبل المواد الحساسة.", stat: "خطوة واحدة", image: clinicsSector.url, task: "سلسلة التوعية الشهرية", result: "بانتظار مراجعتك", signal: "١٨ سؤالاً مجاباً", icon: "+" },
+  { id: "realestate", label: "العقار", title: "كل فرصة تحصل على متابعة كاملة.", body: "العروض والمحتوى والتقارير تنتقل بين الموظفين بسياق واضح.", stat: "٦ موظفين", image: realestateSector.url, task: "إطلاق الفيلا الجديدة", result: "٢٣ فرصة مؤهلة", signal: "٥ معاينات", icon: "⌂" },
 ] as const;
 
 const stats = [
@@ -91,7 +91,7 @@ export function EditorialHomepage() {
 
     <section className="sahl-section sahl-demo-section"><div className="sahl-shell"><Reveal><header className="sahl-section-head is-split"><div><span>جرّب طريقة العمل</span><h2>اطلب النتيجة.<br /><em>واترك التفاصيل لسِراج.</em></h2></div><p>بدلاً من عرض دعائي، هذه تجربة حقيقية مصغّرة: اكتب المطلوب، استلم المسودة، ثم اعتمدها.</p></header></Reveal><Reveal><SirajDemo /></Reveal></div></section>
 
-    <section className="sahl-section sahl-sectors"><div className="sahl-shell"><Reveal><header className="sahl-section-head"><span>حل يناسب نشاطك</span><h2>المنصة نفسها.<br /><em>وسياق مختلف لكل مشروع.</em></h2></header></Reveal><div className="sahl-sector-tabs" role="tablist" aria-label="اختر نوع النشاط">{sectors.map((item, index) => <Button key={item.id} variant="ghost" role="tab" aria-selected={sector === index} className={sector === index ? "is-active" : ""} onClick={() => setSector(index)}>{item.label}</Button>)}</div><Reveal className="sahl-sector-panel"><div><span>{currentSector.label}</span><h3>{currentSector.title}</h3><p>{currentSector.body}</p><strong>{currentSector.stat}</strong><Link to="/use-cases/$id" params={{ id: currentSector.id }}>شاهد الحل الكامل <ArrowLeft /></Link></div><figure><img src={currentSector.image} alt={`سهل لقطاع ${currentSector.label}`} /></figure></Reveal></div></section>
+    <section className="sahl-section sahl-sectors"><div className="sahl-shell"><Reveal><header className="sahl-section-head"><span>حل يناسب نشاطك</span><h2>المنصة نفسها.<br /><em>وسياق مختلف لكل مشروع.</em></h2></header></Reveal><div className="sahl-sector-tabs" role="tablist" aria-label="اختر نوع النشاط">{sectors.map((item, index) => <Button key={item.id} variant="ghost" role="tab" aria-selected={sector === index} aria-controls="sahl-sector-content" className={sector === index ? "is-active" : ""} onClick={() => setSector(index)}>{item.label}</Button>)}</div><Reveal className="sahl-sector-panel"><div><span>{currentSector.label}</span><h3>{currentSector.title}</h3><p>{currentSector.body}</p><strong>{currentSector.stat}</strong><Link to="/use-cases/$id" params={{ id: currentSector.id }}>شاهد الحل الكامل <ArrowLeft /></Link></div><figure id="sahl-sector-content" role="tabpanel" key={currentSector.id}><img src={currentSector.image} alt={`مشهد احترافي يعبّر عن استخدام سهل في قطاع ${currentSector.label}`} loading="lazy" width={1280} height={900} /><div className="sahl-sector-brand"><i>{currentSector.icon}</i><span><small>مساحة عمل سهل</small><b>{currentSector.label}</b></span><em>نشط الآن</em></div><div className="sahl-sector-task"><small>المهمة الحالية</small><b>{currentSector.task}</b><span><i /> {currentSector.result}</span></div><div className="sahl-sector-signal"><small>آخر نتيجة</small><strong>{currentSector.signal}</strong><span>تم التحديث الآن</span></div></figure></Reveal></div></section>
 
     <section className="sahl-section sahl-infrastructure"><div className="sahl-shell"><Reveal><header className="sahl-section-head is-split"><div><span>بنية تشغيل موثوقة</span><h2>يرتبط بأدواتك.<br /><em>ويبقيك في التحكم.</em></h2></div><p>اربط الحسابات التي تعمل عليها، ضع قواعد الاعتماد، وتابع كل خطوة ينفذها الفريق.</p></header></Reveal><Reveal className="sahl-system-board"><ProductFrame src={integrationsAsset.url} alt="تكاملات سهل ومسار العمل" /><div className="sahl-system-points"><span><Workflow /><b>تدفق واحد</b></span><span><LockKeyhole /><b>موافقتك أولاً</b></span><span><Code2 /><b>يتوسع معك</b></span></div></Reveal></div></section>
 
