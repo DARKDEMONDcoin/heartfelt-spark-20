@@ -51,6 +51,29 @@ const stats = [
   { value: "−٩٣٪", label: "في زمن الرد", tone: "fusion" },
 ];
 
+const statHorizonPaths = Array.from({ length: 36 }, (_, index) => {
+  const startY = 366 - index * 1.8;
+  const firstY = 340 - index * 5.2;
+  const secondY = 42 + index * 7.4;
+  const endY = 176 + index * 6.3;
+  return `M 1480 ${startY.toFixed(1)} C 1240 ${firstY.toFixed(1)}, 690 ${secondY.toFixed(1)}, -80 ${endY.toFixed(1)}`;
+});
+
+const statHorizonSignals = [4, 13, 22, 31];
+
+const statHorizonNodes = [
+  { cx: 1304, cy: 315, r: 2.2, delay: "-1s" },
+  { cx: 1186, cy: 266, r: 1.5, delay: "-4.4s" },
+  { cx: 1072, cy: 221, r: 2.8, delay: "-2.6s" },
+  { cx: 936, cy: 178, r: 1.7, delay: "-6.1s" },
+  { cx: 790, cy: 154, r: 2.1, delay: "-3.2s" },
+  { cx: 651, cy: 149, r: 1.4, delay: "-7.3s" },
+  { cx: 516, cy: 169, r: 2.5, delay: "-5.2s" },
+  { cx: 382, cy: 211, r: 1.6, delay: "-.4s" },
+  { cx: 236, cy: 272, r: 2.2, delay: "-6.8s" },
+  { cx: 92, cy: 342, r: 1.5, delay: "-2s" },
+];
+
 function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -87,7 +110,7 @@ export function EditorialHomepage() {
 
     <section className="sahl-section sahl-capabilities"><div className="sahl-shell"><Reveal><header className="sahl-section-head"><span>نظام واحد بدل أدوات متفرقة</span><h2>كل ما يحتاجه مشروعك،<br /><em>يعمل معاً من البداية.</em></h2><p>ابدأ بموظف واحد، ثم أضف القدرات التي تحتاجها. كل مهمة تحمل سياقها إلى الخطوة التالية.</p></header></Reveal><div className="sahl-cap-grid">{capabilities.map((item) => <Reveal key={item.kicker} className={`sahl-cap-card is-${item.span} is-${item.tone}`}><div><item.icon /><span>{item.kicker}</span><h3>{item.title}</h3><p>{item.body}</p><Link to="/features">اعرف أكثر <ArrowLeft /></Link></div><ProductFrame src={item.image} mobileSrc={item.mobileImage} alt={`واجهة ${item.kicker} الحقيقية في سهل`} /></Reveal>)}</div></div></section>
 
-    <section className="sahl-stats"><div className="sahl-stats-wave" aria-hidden="true"><svg viewBox="0 0 1400 520" preserveAspectRatio="none"><defs><linearGradient id="sahlStatsWave" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stopColor="var(--home-terracotta)" /><stop offset="48%" stopColor="var(--home-gold)" /><stop offset="100%" stopColor="var(--home-teal)" /></linearGradient></defs><g className="sahl-stats-wave-lines"><path d="M-80 388 C 190 310 338 435 572 342 S 918 126 1510 184" /><path d="M-80 424 C 204 342 358 466 590 374 S 940 158 1510 216" /><path d="M-80 460 C 220 380 378 498 616 410 S 968 192 1510 250" /><path d="M-80 352 C 176 278 322 398 548 308 S 886 96 1510 150" /></g><path className="sahl-stats-wave-light" d="M-80 388 C 190 310 338 435 572 342 S 918 126 1510 184" /></svg></div><div className="sahl-shell"><Reveal><header><span>بيانات توضيحية من تدفقات سهل</span><h2><strong>أثر العمل</strong><em> يظهر في لوحة واحدة.</em></h2></header></Reveal><div className="sahl-stat-grid">{stats.map((item, index) => <Reveal key={item.label} className={`sahl-stat is-${item.tone}`}><small>٠{index + 1}</small><strong>{item.value}</strong><span>{item.label}</span></Reveal>)}</div></div></section>
+    <section className="sahl-stats"><div className="sahl-shell"><Reveal><header><span>بيانات توضيحية من تدفقات سهل</span><h2><strong>أثر العمل</strong><em> يظهر في لوحة واحدة.</em></h2></header></Reveal><div className="sahl-stat-grid">{stats.map((item, index) => <Reveal key={item.label} className={`sahl-stat is-${item.tone}`}><small>٠{index + 1}</small><strong>{item.value}</strong><span>{item.label}</span></Reveal>)}</div></div><div className="sahl-stats-horizon" aria-hidden="true"><svg viewBox="0 0 1440 440" preserveAspectRatio="none"><defs><linearGradient id="sahlHorizonLine" x1="100%" y1="72%" x2="0%" y2="28%"><stop offset="0%" stopColor="var(--home-terracotta)" /><stop offset="42%" stopColor="var(--home-gold)" stopOpacity=".46" /><stop offset="100%" stopColor="var(--home-teal)" /></linearGradient><linearGradient id="sahlHorizonSignal" x1="100%" y1="70%" x2="0%" y2="30%"><stop offset="0%" stopColor="var(--home-gold)" stopOpacity="0" /><stop offset="45%" stopColor="var(--home-gold)" /><stop offset="100%" stopColor="var(--home-bg)" stopOpacity="0" /></linearGradient></defs><g className="sahl-horizon-lines">{statHorizonPaths.map((path, index) => <path key={path} d={path} style={{ "--line-opacity": 0.52 - index * 0.009 } as React.CSSProperties} />)}</g><g className="sahl-horizon-signals">{statHorizonSignals.map((pathIndex, index) => <path key={pathIndex} d={statHorizonPaths[pathIndex]} style={{ "--signal-delay": `${index * -3.7}s` } as React.CSSProperties} />)}</g><g className="sahl-horizon-nodes">{statHorizonNodes.map((node) => <circle key={`${node.cx}-${node.cy}`} cx={node.cx} cy={node.cy} r={node.r} style={{ "--node-delay": node.delay } as React.CSSProperties} />)}</g></svg></div></section>
 
     <section className="sahl-section sahl-demo-section"><div className="sahl-shell"><Reveal><header className="sahl-section-head is-split"><div><span>جرّب طريقة العمل</span><h2>اطلب النتيجة.<br /><em>واترك التفاصيل لسِراج.</em></h2></div><p>بدلاً من عرض دعائي، هذه تجربة حقيقية مصغّرة: اكتب المطلوب، استلم المسودة، ثم اعتمدها.</p></header></Reveal><Reveal><SirajDemo /></Reveal></div></section>
 

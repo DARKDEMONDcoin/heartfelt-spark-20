@@ -14532,8 +14532,8 @@ section:has(> .integration-grid-wave) {
 .sahl-cap-card.is-teal { background: color-mix(in oklab,var(--home-teal) 7%,var(--home-bg)); }
 .sahl-cap-card.is-gold { background: color-mix(in oklab,var(--home-gold) 8%,var(--home-bg)); }
 
-.sahl-stats { position: relative; padding: 132px 0 124px; overflow: hidden; isolation: isolate; background: var(--home-ink); color: var(--home-bg); }
-.sahl-stats::before { content: ""; position: absolute; z-index: 0; inset: 0; background: radial-gradient(circle at 8% 88%, color-mix(in oklab,var(--home-teal) 15%,transparent), transparent 34%), radial-gradient(circle at 92% 12%, color-mix(in oklab,var(--home-terracotta) 12%,transparent), transparent 32%); opacity: .7; pointer-events: none; }
+.sahl-stats { position: relative; padding: 132px 0 0; overflow: hidden; isolation: isolate; background: var(--home-ink); color: var(--home-bg); }
+.sahl-stats::before { content: ""; position: absolute; z-index: 0; inset: 0; background: radial-gradient(circle at 92% 12%,color-mix(in oklab,var(--home-terracotta) 12%,transparent),transparent 32%),linear-gradient(to bottom,transparent 48%,color-mix(in oklab,var(--home-teal) 9%,var(--home-ink))); opacity: .74; pointer-events: none; }
 .sahl-stats header { position: relative; z-index: 2; max-width: 960px; }
 .sahl-stats header > span { display: block; margin-bottom: 18px; color: color-mix(in oklab,var(--home-gold) 82%,var(--home-bg)); font-size: .75rem; font-weight: 700; }
 .sahl-stats h2 { max-width: 920px; color: color-mix(in oklab,var(--home-bg) 94%,var(--home-gold)); font-size: clamp(2.45rem,4.9vw,5.15rem); line-height: 1.08; font-weight: 800; text-wrap: balance; }
@@ -14549,13 +14549,13 @@ section:has(> .integration-grid-wave) {
 .sahl-stat.is-gold { --stat-gradient: linear-gradient(135deg,var(--home-gold),color-mix(in oklab,var(--home-gold) 34%,var(--home-bg)) 92%); }
 .sahl-stat.is-teal { --stat-gradient: linear-gradient(135deg,var(--home-teal),color-mix(in oklab,var(--home-teal) 34%,var(--home-bg)) 92%); }
 .sahl-stat.is-fusion { --stat-gradient: linear-gradient(135deg,var(--home-terracotta),color-mix(in oklab,var(--home-gold) 48%,var(--home-teal)) 48%,var(--home-teal)); }
-.sahl-stats-wave { position: absolute; z-index: 1; inset: 25% -10% 5%; opacity: .82; transform: rotate(-8deg); pointer-events: none; }
-.sahl-stats-wave svg { width: 100%; height: 100%; overflow: visible; }
-.sahl-stats-wave-lines { animation: sahl-stats-wave-breathe 9s ease-in-out infinite alternate; will-change: transform; }
-.sahl-stats-wave-lines path { fill: none; stroke: url(#sahlStatsWave); stroke-width: 2; stroke-linecap: round; opacity: .7; filter: drop-shadow(0 0 8px color-mix(in oklab,var(--home-gold) 32%,transparent)); }
-.sahl-stats-wave-light { fill: none; stroke: url(#sahlStatsWave); stroke-width: 9; stroke-linecap: round; stroke-dasharray: 210 960; stroke-dashoffset: 980; opacity: .58; filter: blur(4px) drop-shadow(0 0 12px color-mix(in oklab,var(--home-gold) 48%,transparent)); animation: sahl-stats-wave-light 12s ease-in-out infinite; }
-@keyframes sahl-stats-wave-breathe { to { transform: translate3d(1.4%,-2.5%,0) skewY(1.8deg); } }
-@keyframes sahl-stats-wave-light { to { stroke-dashoffset: -190; } }
+.sahl-stats-horizon { position: relative; z-index: 1; width: 100%; height: clamp(300px,31vw,445px); margin-top: clamp(76px,9vw,136px); pointer-events: none; background: linear-gradient(to bottom,transparent,color-mix(in oklab,var(--home-teal) 7%,var(--home-ink))); }
+.sahl-stats-horizon svg { display: block; width: 100%; height: 100%; overflow: hidden; }
+.sahl-horizon-lines path { fill: none; stroke: url(#sahlHorizonLine); stroke-width: .72; stroke-linecap: round; opacity: var(--line-opacity); vector-effect: non-scaling-stroke; }
+.sahl-horizon-signals path { fill: none; stroke: url(#sahlHorizonSignal); stroke-width: 1.25; stroke-linecap: round; stroke-dasharray: 38 1220; stroke-dashoffset: 1280; opacity: .78; filter: drop-shadow(0 0 4px color-mix(in oklab,var(--home-gold) 72%,transparent)); vector-effect: non-scaling-stroke; animation: sahl-horizon-signal 15s linear infinite; animation-delay: var(--signal-delay); }
+.sahl-horizon-nodes circle { fill: var(--home-gold); opacity: .38; transform-box: fill-box; transform-origin: center; filter: drop-shadow(0 0 4px color-mix(in oklab,var(--home-gold) 62%,transparent)); animation: sahl-horizon-node 8s ease-in-out infinite; animation-delay: var(--node-delay); }
+@keyframes sahl-horizon-signal { to { stroke-dashoffset: -120; } }
+@keyframes sahl-horizon-node { 50% { opacity: .88; transform: scale(1.75); } }
 
 .sahl-demo-section { background: var(--home-soft); }
 .sahl-demo { overflow: hidden; border: 1px solid var(--home-line); border-radius: 13px; background: var(--home-bg); box-shadow: 0 40px 100px -70px var(--home-ink); }
@@ -14759,16 +14759,15 @@ section:has(> .integration-grid-wave) {
   .sahl-cap-card h3 { font-size: 1.85rem; }
   .sahl-cap-card .sahl-product-frame, .sahl-cap-card.is-wide .sahl-product-frame { margin: 24px 16px 20px; }
   .sahl-product-frame.is-employee-screen img { width: 100%; height: auto; aspect-ratio: 390/844; object-fit: contain; object-position: center top; }
-  .sahl-stats { padding: 88px 0 92px; }
+  .sahl-stats { padding: 88px 0 0; }
   .sahl-stats header > span { margin-bottom: 14px; }
   .sahl-stats h2 { font-size: 2.55rem; line-height: 1.16; }
   .sahl-stat-grid { grid-template-columns: 1fr; gap: 58px; margin-top: 76px; }
   .sahl-stat small { margin-bottom: 13px; }
   .sahl-stat strong { font-size: clamp(5.3rem,23vw,7.2rem); line-height: .84; }
   .sahl-stat span { margin-top: 12px; font-size: .84rem; }
-  .sahl-stats-wave { inset: 20% -72% 7% -44%; opacity: .76; transform: rotate(-13deg); }
-  .sahl-stats-wave-lines path { stroke-width: 1.8; opacity: .62; }
-  .sahl-stats-wave-light { stroke-width: 8; opacity: .5; }
+  .sahl-stats-horizon { width: 168%; height: 330px; margin-top: 72px; margin-inline-start: -68%; }
+  .sahl-horizon-lines path { stroke-width: .66; }
   .sahl-demo-grid { min-height: 625px; display: block; }
   .sahl-demo-grid aside { display: none; }
   .sahl-demo > header { grid-template-columns: 1fr auto; }
@@ -14810,6 +14809,6 @@ section:has(> .integration-grid-wave) {
 @media (prefers-reduced-motion: reduce) {
   .sahl-reveal { opacity: 1; transform: none; transition: none; }
   .sahl-hero-copy > * { animation: none; opacity: 1; transform: none; }
-  .sahl-hero-wash, .sahl-float-note, .sahl-stats-wave-lines, .sahl-stats-wave-light, .sahl-hero-ribbon, .sahl-hero-ribbon::before, .sahl-hero-ribbon::after { animation: none; }
+  .sahl-hero-wash, .sahl-float-note, .sahl-horizon-signals path, .sahl-horizon-nodes circle, .sahl-hero-ribbon, .sahl-hero-ribbon::before, .sahl-hero-ribbon::after { animation: none; }
   .sahl-cap-card .sahl-product-frame { transition: none; }
 }
