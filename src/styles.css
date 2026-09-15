@@ -14637,8 +14637,8 @@ section:has(> .integration-grid-wave) {
 .sahl-infrastructure { background: var(--home-soft); }
 .sahl-system-board { overflow: hidden; padding: 48px 48px 0; border-radius: 14px; background: var(--home-ink); color: var(--home-bg); }
 .sahl-system-board .sahl-product-frame { max-width: 960px; margin-inline: auto; transform: translateY(1px); }
-.sahl-tool-connections { position: relative; width: min(560px,100%); height: 136px; margin: 28px auto 0; direction: ltr; }
-.sahl-tool-wires { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.sahl-tool-connections { position: relative; width: min(760px,100%); height: 286px; margin: 0 auto; direction: ltr; }
+.sahl-tool-wires { position: absolute; inset: 75px 0 auto; width: 100%; height: 136px; overflow: visible; }
 .sahl-tool-wires > path { fill: none; stroke: color-mix(in oklab,var(--home-bg) 23%,transparent); stroke-width: .8; vector-effect: non-scaling-stroke; }
 .sahl-tool-pulses use { fill: none; stroke: var(--home-gold); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 1 1000; stroke-dashoffset: 0; opacity: 0; filter: drop-shadow(0 0 5px color-mix(in oklab,var(--home-gold) 78%,transparent)); animation: sahl-tool-pulse 10s linear infinite; }
 .sahl-tool-pulses use:nth-child(2) { animation-delay: 2s; }
@@ -14646,16 +14646,16 @@ section:has(> .integration-grid-wave) {
 .sahl-tool-pulses use:nth-child(4) { animation-delay: 6s; }
 .sahl-tool-pulses use:nth-child(5) { animation-delay: 8s; }
 .sahl-tool-icon, .sahl-tool-core { position: absolute; z-index: 2; display: grid; place-items: center; border: 1px solid color-mix(in oklab,var(--tool-tone) 55%,transparent); border-radius: 50%; background: color-mix(in oklab,var(--home-ink) 88%,var(--tool-tone)); color: var(--tool-tone); box-shadow: 0 0 20px color-mix(in oklab,var(--tool-tone) 10%,transparent); }
-.sahl-tool-icon { width: 38px; height: 38px; }
-.sahl-tool-icon svg { width: 18px; height: 18px; stroke-width: 1.75; }
-.sahl-tool-icon b { font-family: Arial,sans-serif; font-size: 1.1rem; line-height: 1; }
+.sahl-tool-icon { width: 48px; height: 48px; }
+.sahl-tool-icon svg { width: 22px; height: 22px; stroke-width: 1.75; }
+.sahl-tool-icon b { font-family: Arial,sans-serif; font-size: 1.28rem; line-height: 1; }
 .sahl-tool-icon span, .sahl-tool-core span { position: absolute; top: calc(100% + 5px); color: color-mix(in oklab,var(--home-bg) 57%,transparent); font-size: .52rem; white-space: nowrap; }
-.sahl-tool-icon.is-instagram { --tool-tone: var(--home-terracotta); left: 55px; top: 9px; }
-.sahl-tool-icon.is-whatsapp { --tool-tone: var(--home-teal); left: 55px; top: 49px; }
-.sahl-tool-icon.is-google { --tool-tone: var(--home-gold); left: 55px; top: 89px; }
-.sahl-tool-icon.is-facebook { --tool-tone: var(--home-teal); right: 55px; top: 23px; }
-.sahl-tool-icon.is-shopify { --tool-tone: var(--home-terracotta); right: 55px; top: 75px; }
-.sahl-tool-core { --tool-tone: var(--home-gold); left: 50%; top: 50%; width: 58px; height: 58px; padding: 10px; transform: translate(-50%,-50%); background: color-mix(in oklab,var(--home-ink) 82%,var(--home-gold)); box-shadow: 0 0 28px color-mix(in oklab,var(--home-gold) 18%,transparent); }
+.sahl-tool-icon.is-instagram { --tool-tone: var(--home-terracotta); left: 8%; top: 65px; }
+.sahl-tool-icon.is-whatsapp { --tool-tone: var(--home-teal); left: 8%; top: 114px; }
+.sahl-tool-icon.is-google { --tool-tone: var(--home-gold); left: 8%; top: 163px; }
+.sahl-tool-icon.is-facebook { --tool-tone: var(--home-teal); right: 8%; top: 81px; }
+.sahl-tool-icon.is-shopify { --tool-tone: var(--home-terracotta); right: 8%; top: 147px; }
+.sahl-tool-core { --tool-tone: var(--home-gold); left: 50%; top: 50%; width: 72px; height: 72px; padding: 14px; transform: translate(-50%,-50%); background: color-mix(in oklab,var(--home-ink) 82%,var(--home-gold)); box-shadow: 0 0 32px color-mix(in oklab,var(--home-gold) 18%,transparent); }
 .sahl-tool-core img { width: 34px; height: 34px; }
 @keyframes sahl-tool-pulse { 0%,1% { stroke-dashoffset: 0; opacity: 0; } 3% { opacity: 1; } 17% { stroke-dashoffset: -1000; opacity: 1; } 19%,100% { stroke-dashoffset: -1000; opacity: 0; } }
 .sahl-system-points { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 42px; border-top: 1px solid oklch(1 0 0 / .16); }
@@ -14814,10 +14814,16 @@ section:has(> .integration-grid-wave) {
   .sahl-sector-task { inset: auto 14px 14px; width: calc(100% - 28px); }
   .sahl-sector-signal { inset: auto auto 132px 14px; min-width: 128px; }
   .sahl-system-board { padding: 22px 22px 0; }
-  .sahl-tool-connections { width: 100%; height: 120px; margin-top: 22px; transform: scale(.96); }
-  .sahl-tool-wires { height: 120px; }
-  .sahl-tool-icon.is-instagram, .sahl-tool-icon.is-whatsapp, .sahl-tool-icon.is-google { left: 2px; }
-  .sahl-tool-icon.is-facebook, .sahl-tool-icon.is-shopify { right: 2px; }
+  .sahl-tool-connections { width: 100%; height: 230px; margin-top: 0; transform: none; }
+  .sahl-tool-wires { top: 47px; height: 136px; }
+  .sahl-tool-icon { width: 42px; height: 42px; }
+  .sahl-tool-icon.is-instagram, .sahl-tool-icon.is-whatsapp, .sahl-tool-icon.is-google { left: 0; }
+  .sahl-tool-icon.is-facebook, .sahl-tool-icon.is-shopify { right: 0; }
+  .sahl-tool-icon.is-instagram { top: 37px; }
+  .sahl-tool-icon.is-whatsapp { top: 86px; }
+  .sahl-tool-icon.is-google { top: 135px; }
+  .sahl-tool-icon.is-facebook { top: 55px; }
+  .sahl-tool-icon.is-shopify { top: 121px; }
   .sahl-tool-core { top: 50%; }
   .sahl-system-horizon { width: calc(100% + 44px); height: 245px; margin: 0 -22px; }
   .sahl-horizon-lines path { stroke-width: .66; }
