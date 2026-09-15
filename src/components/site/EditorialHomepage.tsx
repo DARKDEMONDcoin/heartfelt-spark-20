@@ -45,10 +45,10 @@ const sectors = [
 ] as const;
 
 const stats = [
-  { value: "١٨٤", label: "مهمة نموذجية كل أسبوع" },
-  { value: "٦٨", label: "ساعة يمكن توفيرها" },
-  { value: "−٩٣٪", label: "في زمن الرد" },
-  { value: "٢٫٦×", label: "اجتماعات مؤهلة" },
+  { value: "١٨٤", label: "مهمة نموذجية كل أسبوع", tone: "terracotta" },
+  { value: "٦٨", label: "ساعة يمكن توفيرها", tone: "gold" },
+  { value: "٤٫٢×", label: "اجتماعات مؤهلة", tone: "teal" },
+  { value: "−٩٣٪", label: "في زمن الرد", tone: "fusion" },
 ];
 
 function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {
@@ -87,7 +87,7 @@ export function EditorialHomepage() {
 
     <section className="sahl-section sahl-capabilities"><div className="sahl-shell"><Reveal><header className="sahl-section-head"><span>نظام واحد بدل أدوات متفرقة</span><h2>كل ما يحتاجه مشروعك،<br /><em>يعمل معاً من البداية.</em></h2><p>ابدأ بموظف واحد، ثم أضف القدرات التي تحتاجها. كل مهمة تحمل سياقها إلى الخطوة التالية.</p></header></Reveal><div className="sahl-cap-grid">{capabilities.map((item) => <Reveal key={item.kicker} className={`sahl-cap-card is-${item.span} is-${item.tone}`}><div><item.icon /><span>{item.kicker}</span><h3>{item.title}</h3><p>{item.body}</p><Link to="/features">اعرف أكثر <ArrowLeft /></Link></div><ProductFrame src={item.image} mobileSrc={item.mobileImage} alt={`واجهة ${item.kicker} الحقيقية في سهل`} /></Reveal>)}</div></div></section>
 
-    <section className="sahl-stats"><div className="sahl-stats-curve" aria-hidden="true"><i /><i /><i /></div><div className="sahl-shell"><Reveal><header><span>بيانات توضيحية من تدفقات سهل</span><h2>أثر العمل يظهر<br />في لوحة واحدة.</h2></header></Reveal><div className="sahl-stat-grid">{stats.map((item, index) => <Reveal key={item.label} className="sahl-stat"><small>٠{index + 1}</small><strong>{item.value}</strong><span>{item.label}</span></Reveal>)}</div></div></section>
+    <section className="sahl-stats"><div className="sahl-stats-wave" aria-hidden="true"><svg viewBox="0 0 1400 520" preserveAspectRatio="none"><defs><linearGradient id="sahlStatsWave" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stopColor="var(--home-terracotta)" /><stop offset="48%" stopColor="var(--home-gold)" /><stop offset="100%" stopColor="var(--home-teal)" /></linearGradient></defs><g className="sahl-stats-wave-lines"><path d="M-80 388 C 190 310 338 435 572 342 S 918 126 1510 184" /><path d="M-80 424 C 204 342 358 466 590 374 S 940 158 1510 216" /><path d="M-80 460 C 220 380 378 498 616 410 S 968 192 1510 250" /><path d="M-80 352 C 176 278 322 398 548 308 S 886 96 1510 150" /></g><path className="sahl-stats-wave-light" d="M-80 388 C 190 310 338 435 572 342 S 918 126 1510 184" /></svg></div><div className="sahl-shell"><Reveal><header><span>بيانات توضيحية من تدفقات سهل</span><h2><strong>أثر العمل</strong><em> يظهر في لوحة واحدة.</em></h2></header></Reveal><div className="sahl-stat-grid">{stats.map((item, index) => <Reveal key={item.label} className={`sahl-stat is-${item.tone}`}><small>٠{index + 1}</small><strong>{item.value}</strong><span>{item.label}</span></Reveal>)}</div></div></section>
 
     <section className="sahl-section sahl-demo-section"><div className="sahl-shell"><Reveal><header className="sahl-section-head is-split"><div><span>جرّب طريقة العمل</span><h2>اطلب النتيجة.<br /><em>واترك التفاصيل لسِراج.</em></h2></div><p>بدلاً من عرض دعائي، هذه تجربة حقيقية مصغّرة: اكتب المطلوب، استلم المسودة، ثم اعتمدها.</p></header></Reveal><Reveal><SirajDemo /></Reveal></div></section>
 
