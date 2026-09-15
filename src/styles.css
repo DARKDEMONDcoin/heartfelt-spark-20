@@ -14549,11 +14549,11 @@ section:has(> .integration-grid-wave) {
 .sahl-stat.is-gold { --stat-gradient: linear-gradient(135deg,var(--home-gold),color-mix(in oklab,var(--home-gold) 34%,var(--home-bg)) 92%); }
 .sahl-stat.is-teal { --stat-gradient: linear-gradient(135deg,var(--home-teal),color-mix(in oklab,var(--home-teal) 34%,var(--home-bg)) 92%); }
 .sahl-stat.is-fusion { --stat-gradient: linear-gradient(135deg,var(--home-terracotta),color-mix(in oklab,var(--home-gold) 48%,var(--home-teal)) 48%,var(--home-teal)); }
-.sahl-stats-wave { position: absolute; z-index: 1; inset: 30% -10% 9%; opacity: .42; transform: rotate(-8deg); pointer-events: none; }
+.sahl-stats-wave { position: absolute; z-index: 1; inset: 25% -10% 5%; opacity: .82; transform: rotate(-8deg); pointer-events: none; }
 .sahl-stats-wave svg { width: 100%; height: 100%; overflow: visible; }
 .sahl-stats-wave-lines { animation: sahl-stats-wave-breathe 9s ease-in-out infinite alternate; will-change: transform; }
-.sahl-stats-wave-lines path { fill: none; stroke: url(#sahlStatsWave); stroke-width: 1.25; stroke-linecap: round; opacity: .46; filter: drop-shadow(0 0 10px color-mix(in oklab,var(--home-gold) 20%,transparent)); }
-.sahl-stats-wave-light { fill: none; stroke: url(#sahlStatsWave); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 150 1020; stroke-dashoffset: 980; opacity: .28; filter: blur(3px); animation: sahl-stats-wave-light 12s ease-in-out infinite; }
+.sahl-stats-wave-lines path { fill: none; stroke: url(#sahlStatsWave); stroke-width: 2; stroke-linecap: round; opacity: .7; filter: drop-shadow(0 0 8px color-mix(in oklab,var(--home-gold) 32%,transparent)); }
+.sahl-stats-wave-light { fill: none; stroke: url(#sahlStatsWave); stroke-width: 9; stroke-linecap: round; stroke-dasharray: 210 960; stroke-dashoffset: 980; opacity: .58; filter: blur(4px) drop-shadow(0 0 12px color-mix(in oklab,var(--home-gold) 48%,transparent)); animation: sahl-stats-wave-light 12s ease-in-out infinite; }
 @keyframes sahl-stats-wave-breathe { to { transform: translate3d(1.4%,-2.5%,0) skewY(1.8deg); } }
 @keyframes sahl-stats-wave-light { to { stroke-dashoffset: -190; } }
 
@@ -14766,9 +14766,9 @@ section:has(> .integration-grid-wave) {
   .sahl-stat small { margin-bottom: 13px; }
   .sahl-stat strong { font-size: clamp(5.3rem,23vw,7.2rem); line-height: .84; }
   .sahl-stat span { margin-top: 12px; font-size: .84rem; }
-  .sahl-stats-wave { inset: 24% -72% 12% -44%; opacity: .36; transform: rotate(-13deg); }
-  .sahl-stats-wave-lines path { stroke-width: 1; opacity: .36; }
-  .sahl-stats-wave-light { stroke-width: 4; opacity: .22; }
+  .sahl-stats-wave { inset: 20% -72% 7% -44%; opacity: .76; transform: rotate(-13deg); }
+  .sahl-stats-wave-lines path { stroke-width: 1.8; opacity: .62; }
+  .sahl-stats-wave-light { stroke-width: 8; opacity: .5; }
   .sahl-demo-grid { min-height: 625px; display: block; }
   .sahl-demo-grid aside { display: none; }
   .sahl-demo > header { grid-template-columns: 1fr auto; }
