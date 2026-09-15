@@ -52,10 +52,10 @@ const stats = [
 ];
 
 const statHorizonPaths = Array.from({ length: 36 }, (_, index) => {
-  const startY = 366 - index * 1.8;
-  const firstY = 340 - index * 5.2;
-  const secondY = 42 + index * 7.4;
-  const endY = 176 + index * 6.3;
+  const startY = 382 + index * 0.25;
+  const firstY = 320 - index * 3.8;
+  const secondY = 34 + index * 4.6;
+  const endY = 362 + index * 1.7;
   return `M 1480 ${startY.toFixed(1)} C 1240 ${firstY.toFixed(1)}, 690 ${secondY.toFixed(1)}, -80 ${endY.toFixed(1)}`;
 });
 
